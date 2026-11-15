@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#11141b">
+<meta name="description" content="PIXEL FORGE STUDIO - high-fidelity browser digital painting workspace">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>PIXEL FORGE STUDIO · Web Studio Edition v5.0</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><div class="brandmark">✦</div><div>PIXEL FORGE <small>PRO DIGITAL ART STUDIO</small></div></div>
+    <nav class="menu">
+      <button id="menuFile">ファイル ▾</button><button id="menuEdit">編集 ▾</button><button id="menuCanvas">キャンバス ▾</button><button id="menuView">表示 ▾</button><button id="menuHelp">ヘルプ</button>
+    </nav>
+    <div class="topspacer"></div><div class="docname" id="docName">Untitled · 1600 × 1000</div>
+    <button class="topbtn" id="panelToggle" title="設定パネルの表示/非表示"><span class="topicon">☷</span><span class="toplabel">パネル</span></button><button class="topbtn" id="newBtn"><span class="topicon">＋</span><span class="toplabel">新規</span></button><button class="topbtn primary" id="saveBtn"><span class="topicon">▣</span><span class="toplabel">保存</span></button>
+  </header>
+  <div class="menuPopup hidden" id="menuPopup" role="menu"></div>
+  <main class="workspace">
+    <aside class="leftbar" aria-label="ツール">
+      <button class="tool active" data-tool="brush" title="ブラシ (B)" aria-label="ブラシ"><svg class="ico" viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"/><path d="m14.5 7.5 3 3"/></svg><span class="tip">ブラシ <span class="kbd">B</span></span></button>
+      <button class="tool" data-tool="eraser" title="消しゴム (E)" aria-label="消しゴム"><svg class="ico" viewBox="0 0 24 24"><path d="m7 17-3-3 9-9 7 7-5 5H7Z"/><path d="m11 9 7 7M7 17h12"/></svg><span class="tip">消しゴム <span class="kbd">E</span></span></button>
+      <button class="tool" data-tool="line" title="直線 (L)" aria-label="直線"><svg class="ico" viewBox="0 0 24 24"><path d="M5 19 19 5"/></svg><span class="tip">直線 <span class="kbd">L</span></span></button>
+      <button class="tool" data-tool="rect" title="四角形 (R)" aria-label="四角形"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/></svg><span class="tip">四角形 <span class="kbd">R</span></span></button>
+      <button class="tool" data-tool="ellipse" title="楕円 (O)" aria-label="楕円"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="8" ry="6.5"/></svg><span class="tip">楕円 <span class="kbd">O</span></span></button>
+
+      <button class="tool" data-tool="triangle" title="三角形" aria-label="三角形"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4 21 20H3L12 4Z"/></svg><span class="tip">三角形</span></button>
+      <button class="tool" data-tool="star" title="星形" aria-label="星形"><svg class="ico" viewBox="0 0 24 24"><path d="m12 2 2.9 7.1 7.6.5-5.8 4.8 1.9 7.4-6.6-4-6.6 4 1.9-7.4L1.5 9.6l7.6-.5L12 2Z"/></svg><span class="tip">星形</span></button>
+      <button class="tool" data-tool="roundedRect" title="角丸長方形" aria-label="角丸長方形"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/></svg><span class="tip">角丸長方形</span></button>
+      <button class="tool" data-tool="polygon" title="多角形" aria-label="多角形"><svg class="ico" viewBox="0 0 24 24"><path d="m12 2 9 6-3.5 12h-11L3 8l9-6Z"/></svg><span class="tip">多角形</span></button>
+      <button class="tool" data-tool="arrow" title="矢印" aria-label="矢印"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20 20 4m-9 0h9v9"/></svg><span class="tip">矢印</span></button>
+      <button class="tool" data-tool="curve" title="ベジェ曲線 (U)" aria-label="ベジェ曲線"><svg class="ico" viewBox="0 0 24 24"><path d="M3 19C7 19 7 5 21 5"/><circle cx="3" cy="19" r="1.5"/><circle cx="21" cy="5" r="1.5"/></svg><span class="tip">ベジェ曲線 <span class="kbd">U</span></span></button>
+      <button class="tool" data-tool="gradient" title="グラデーション (D)" aria-label="グラデーション"><svg class="ico" viewBox="0 0 24 24"><path d="M4 18 18 4M7 20l13-13M4 12l8-8"/><path d="m4 18 2 2"/></svg><span class="tip">グラデーション <span class="kbd">D</span></span></button>
+      <button class="tool" data-tool="move" title="レイヤー移動 (M)" aria-label="レイヤー移動"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 2l-3 3m3-3 3 3M12 22l-3-3m3 3 3-3M2 12l3-3m-3 3 3 3m16-3-3-3m3 3-3 3"/></svg><span class="tip">レイヤー移動 <span class="kbd">M</span></span></button>
+      <button class="tool" data-tool="transform" title="オブジェクト変形 (V)" aria-label="オブジェクト変形"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M12 4v-2m0 20v-2M4 12H2m20 0h-2M8 8l8 8"/><circle cx="12" cy="12" r="2"/></svg><span class="tip">変形（枠内で移動・上で回転・角で拡大） <span class="kbd">V</span></span></button>
+      <div class="toolsep"></div>
+      <button class="tool" data-tool="fill" title="塗りつぶし (G)" aria-label="塗りつぶし"><svg class="ico" viewBox="0 0 24 24"><path d="m4 13 8-8 8 8-8 8-8-8Z"/><path d="m8 9 8 8M18 18h3"/></svg><span class="tip">塗りつぶし <span class="kbd">G</span></span></button>
+      <button class="tool" data-tool="eyedropper" title="スポイト (I)" aria-label="スポイト"><svg class="ico" viewBox="0 0 24 24"><path d="m15 4 5 5M13 6l5 5-9 9-5 1 1-5 8-10Z"/></svg><span class="tip">スポイト <span class="kbd">I</span></span></button>
+      <button class="tool" data-tool="text" title="テキスト (T)" aria-label="テキスト"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16M12 5v14M8 19h8"/></svg><span class="tip">テキスト <span class="kbd">T</span></span></button>
+      <button class="tool" data-tool="hand" title="手のひら (H)" aria-label="手のひら"><svg class="ico" viewBox="0 0 24 24"><path d="M8 12V5a1.5 1.5 0 0 1 3 0v6-8a1.5 1.5 0 0 1 3 0v8-6a1.5 1.5 0 0 1 3 0v8-4a1.5 1.5 0 0 1 3 0v7c0 4-2.5 6-6 6h-2c-2 0-3.5-1-4.5-2.5L4 14a1.6 1.6 0 0 1 2.5-2L8 14"/></svg><span class="tip">手のひら <span class="kbd">H</span></span></button>
+      <div class="toolsep"></div>
+      <button class="tool" id="undoBtn" title="元に戻す (Ctrl+Z)" aria-label="元に戻す"><svg class="ico" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h9a7 7 0 0 1 0 14h-2"/></svg></button><button class="tool" id="redoBtn" title="やり直す (Ctrl+Shift+Z)" aria-label="やり直す"><svg class="ico" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5m5 5h-9a7 7 0 0 0 0 14h2"/></svg></button>
+      <div class="toolsep"></div>
+      <button class="tool" id="importBtn" title="画像をレイヤーとして読み込む" aria-label="画像を読み込む"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9" r="1.5"/><path d="m4 17 5-5 4 4 3-3 4 4"/></svg></button><button class="tool" id="psdImportBtn" title="PSDを開く" aria-label="PSDを開く"><svg class="ico" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM14 3v5h5"/><path d="M8 16v-5h3a2 2 0 0 1 0 4H8m7-4h3m-3 0v5"/></svg></button><input id="imageInput" type="file" accept="image/*" hidden><input id="traceInput" type="file" accept="image/*" hidden><input id="psdInput" type="file" accept=".psd,application/photoshop" hidden>
+    </aside>
+    <section class="center">
+      <div class="contextbar">
+        <div class="context-group"><label>サイズ</label><input id="sizeRange" type="range" min="1" max="250" value="18"><input id="sizeNumber" type="number" min="1" max="500" value="18"></div>
+        <div class="context-group"><label>不透明度</label><input id="opacityRange" type="range" min="1" max="100" value="100"><span id="opacityValue" class="muted">100%</span></div>
+        <div class="context-group"><label>安定化</label><input id="stabilizerRange" type="range" min="0" max="90" value="20"><span id="stabilizerValue" class="muted">20</span></div>
+        <div class="context-group"><label>2色目</label><input type="color" id="gradientColor" value="#83b7ff" title="グラデーション終点色"><select id="gradientType" title="グラデーション種類"><option value="linear">線形</option><option value="radial">円形</option></select></div>
+        <div class="context-group"><label>対称</label><select id="symmetry"><option value="none">OFF</option><option value="vertical">左右</option><option value="horizontal">上下</option><option value="quad">4分割</option><option value="radial">放射8</option></select></div>
+        <div class="context-group"><label>ズーム</label><button class="smallbtn" id="zoomOut">−</button><span id="zoomText" class="muted">100%</span><button class="smallbtn" id="zoomIn">＋</button></div>
+      </div>
+      <div class="stage" id="stage">
+        <canvas id="display" aria-label="描画キャンバス"></canvas><canvas id="overlay" aria-hidden="true"></canvas>
+        <div class="toast" id="toast"></div>
+      </div>
+      <footer class="bottombar"><span id="statusText">準備完了</span><span id="coordsText">X: —　Y: —</span><div class="status-spacer"></div><span id="docSizeText">1600 × 1000 px</span><span class="status-pill" id="autosaveStatus">自動保存 ON</span></footer>
+    </section>
+    <aside class="rightbar" id="rightbar">
+      <section class="panel">
+        <div class="panelhead">COLOR <span>カラー</span></div>
+        <div class="colorrow"><div class="currentcolor"><input type="color" id="colorPicker" value="#222b3a"></div><input class="hex" id="hexColor" value="#222B3A" maxlength="7" spellcheck="false"></div>
+        <div class="swatches" id="swatches" style="margin-top:10px"></div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">BRUSH ENGINE <span>ブラシ設定</span></div>
+        <div class="field"><div class="fieldrow"><label for="hardness">硬さ</label><span id="hardnessValue">85%</span></div><input id="hardness" type="range" min="0" max="100" value="85"></div>
+        <div class="field"><div class="fieldrow"><label for="spacing">間隔</label><span id="spacingValue">20%</span></div><input id="spacing" type="range" min="1" max="100" value="20"></div>
+        <div class="field"><div class="fieldrow"><label for="brushFlow">インク流量</label><span id="brushFlowValue">100%</span></div><input id="brushFlow" type="range" min="1" max="100" value="100"></div>
+        <div class="field"><div class="fieldrow"><label for="brushJitter">散布・ブレ</label><span id="brushJitterValue">0%</span></div><input id="brushJitter" type="range" min="0" max="100" value="0"></div>
+        <div class="field"><div class="fieldrow"><label for="brushAngle">ブラシ角度</label><span id="brushAngleValue">0°</span></div><input id="brushAngle" type="range" min="-180" max="180" value="0"></div>
+        <div class="fieldrow"><label for="pressureOpacity">筆圧を濃さにも反映</label><input id="pressureOpacity" type="checkbox"></div>
+        <div class="field"><div class="fieldrow"><label for="polygonSides">多角形の辺数</label><span id="polygonSidesValue">6辺</span></div><input id="polygonSides" type="range" min="3" max="16" value="6"></div>
+        <div class="field"><div class="fieldrow"><label for="curveBend">曲線のふくらみ</label><span id="curveBendValue">35%</span></div><input id="curveBend" type="range" min="0" max="100" value="35"></div>
+        <div class="field"><div class="fieldrow"><label for="pressureSize">筆圧サイズ（マウスでは固定）</label><input id="pressureSize" type="checkbox" checked></div></div>
+        <div class="field"><div class="fieldrow"><label for="shapeFill">図形を塗りつぶす</label><input id="shapeFill" type="checkbox"></div></div><div class="field"><div class="fieldrow"><label for="fillTolerance">塗りつぶし許容値</label><span id="fillToleranceValue">24</span></div><input id="fillTolerance" type="range" min="0" max="100" value="24"></div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">ANALOG BRUSH LIBRARY <span>画材プリセット</span></div>
+        <div class="field"><div class="fieldrow"><label for="brushPreset">ペン・筆の種類</label></div>
+          <select id="brushPreset" class="fieldselect">
+            <option value="gpen">Gペン（強弱・漫画）</option><option value="maru">丸ペン（極細）</option><option value="millipen">ミリペン（均一）</option>
+            <option value="pencilHB">鉛筆 HB</option><option value="pencilB">鉛筆 B</option><option value="pencil2B">鉛筆 2B</option><option value="pencil4B">鉛筆 4B</option>
+            <option value="coloredPencil">色鉛筆</option><option value="watercolor">水彩（にじみ）</option><option value="acrylic">アクリル筆</option>
+            <option value="glass">ガラスペン</option><option value="fountain">万年筆</option><option value="marker">アルコールマーカー</option>
+            <option value="airbrush">エアブラシ</option><option value="pixel">ピクセルペン</option><option value="chalk">チョーク</option><option value="crayon">クレヨン</option><option value="brushPen">筆ペン</option><option value="sumi">墨筆</option><option value="dip">つけペン</option><option value="dryBrush">ドライブラシ</option><option value="oil">油彩ブラシ</option><option value="pastel">ソフトパステル</option><option value="highlighter">蛍光マーカー</option><option value="spray">スプレー</option><option value="neon">ネオンペン</option><option value="metalGold">金属ペン・ゴールド</option><option value="metalSilver">金属ペン・シルバー</option><option value="metalCopper">金属ペン・カッパー</option><option value="chrome">クローム反射</option><option value="neonPink">ネオン・ピンク</option><option value="neonCyan">ネオン・シアン</option><option value="neonLime">ネオン・ライム</option><option value="glitter">グリッター・ラメ</option><option value="calligraphy">カリグラフィー</option><option value="bristleOil">剛毛油彩</option><option value="granulating">粒状水彩</option><option value="softAirbrush">ソフトエアブラシ</option>
+          </select>
+        </div>
+        <div class="field"><div class="fieldrow"><label for="waterAmount">水分量・にじみ</label><span id="waterAmountValue">55%</span></div><input id="waterAmount" type="range" min="0" max="100" value="55"></div>
+        <div class="field"><div class="fieldrow"><label for="pigment">顔料の粒子感</label><span id="pigmentValue">35%</span></div><input id="pigment" type="range" min="0" max="100" value="35"></div>
+        <div class="field"><div class="fieldrow"><label for="waterSpread">水彩の広がり</label><span id="waterSpreadValue">45%</span></div><input id="waterSpread" type="range" min="0" max="100" value="45"></div>
+        <div class="field"><div class="fieldrow"><label for="edgeDarkening">水彩の縁の濃さ</label><span id="edgeDarkeningValue">30%</span></div><input id="edgeDarkening" type="range" min="0" max="100" value="30"></div>
+        <div class="muted" style="font-size:10px">筆圧対応デバイスではGペン・万年筆などの線幅に反映。水彩は重ね塗り・にじみ・粒状感を組み合わせたデジタル表現です。</div>
+        <button class="smallbtn" id="waterSim" style="width:100%;margin-top:8px">水彩シミュレーションを実行</button><div class="muted panelnote">選択中のレイヤーに顔料拡散・水分にじみ・縁の濃縮を計算します。Workerで別スレッド処理。</div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">PAPER LAB <span>紙の質感</span></div>
+        <div class="field"><div class="fieldrow"><label for="paperTexture">用紙</label></div>
+          <select id="paperTexture" class="fieldselect"><option value="none">なし・透明</option><option value="smooth">滑らかな画用紙</option><option value="coldpress">水彩紙・中目</option><option value="rough">水彩紙・荒目</option><option value="cotton">コットン紙</option><option value="rice">和紙</option><option value="canvas">キャンバス布</option><option value="vellum">羊皮紙風</option><option value="recycled">再生紙</option><option value="newsprint">新聞紙</option><option value="laid">簀目紙</option><option value="handmade">手すき和紙</option><option value="hotpress">水彩紙・細目</option><option value="parchment">羊皮紙</option><option value="kraft">クラフト紙</option><option value="pastel">パステル紙</option><option value="manga">漫画原稿用紙</option><option value="linen">リネン紙</option></select>
+        </div>
+        <div class="field"><div class="fieldrow"><label for="paperStrength">紙目の強さ</label><span id="paperStrengthValue">35%</span></div><input id="paperStrength" type="range" min="0" max="100" value="35"></div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">TRACE / REFERENCE <span>写真を下敷きにする</span></div>
+        <div class="layeractions"><button class="smallbtn" id="loadTrace">写真を下敷きに読込</button><button class="smallbtn" id="clearTrace">解除</button></div>
+        <div class="field"><div class="fieldrow"><label for="traceOpacity">下敷きの不透明度</label><span id="traceOpacityValue">30%</span></div><input id="traceOpacity" type="range" min="0" max="100" value="30"></div>
+        <div class="field"><div class="fieldrow"><label for="traceScale">下敷きサイズ</label><span id="traceScaleValue">100%</span></div><input id="traceScale" type="range" min="10" max="300" value="100"></div>
+        <div class="field"><div class="fieldrow"><label for="traceX">左右位置</label><span id="traceXValue">0</span></div><input id="traceX" type="range" min="-1000" max="1000" value="0"></div>
+        <div class="field"><div class="fieldrow"><label for="traceY">上下位置</label><span id="traceYValue">0</span></div><input id="traceY" type="range" min="-1000" max="1000" value="0"></div>
+        <div class="field"><div class="fieldrow"><label for="traceVisible">下敷きを表示</label><input id="traceVisible" type="checkbox" checked></div></div>
+        <button class="smallbtn" id="traceReset" style="width:100%">下敷き位置・サイズをリセット</button>
+        <div class="muted" style="font-size:10px">写真は描画レイヤーの下に固定されます。線画は別レイヤーに描けます。</div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">TYPOGRAPHY <span>文字レイヤー</span></div>
+        <div class="field"><div class="fieldrow"><label for="textContent">文字</label></div><textarea id="textContent" rows="2" style="width:100%;resize:vertical;background:#222a37;border:1px solid #394658;color:#e5edf7;border-radius:6px;padding:7px" placeholder="キャンバスに配置する文字"></textarea></div>
+        <div class="field"><div class="fieldrow"><label for="textFont">フォント</label></div><select id="textFont" class="fieldselect"><option>Segoe UI</option><option>Meiryo</option><option>Yu Gothic</option><option>Arial</option><option>Georgia</option><option>Times New Roman</option><option>monospace</option><option>serif</option></select></div>
+        <div class="field"><div class="fieldrow"><label for="textSize">文字サイズ</label></div><input id="textSize" type="number" min="4" max="1200" value="72"></div>
+        <div class="field"><div class="fieldrow"><label for="textWeight">太さ</label></div><select id="textWeight" class="fieldselect"><option value="400">標準</option><option value="600">セミボールド</option><option value="700">太字</option><option value="900">極太</option></select></div>
+        <div class="field"><div class="fieldrow"><label for="textAlign">配置</label></div><select id="textAlign" class="fieldselect"><option value="left">左揃え</option><option value="center">中央揃え</option><option value="right">右揃え</option></select></div>
+        <div class="field"><div class="fieldrow"><label for="textStroke">文字のフチ</label><input id="textStroke" type="checkbox"></div></div>
+        <div class="field"><div class="fieldrow"><label for="textStrokeColor">フチ色・太さ</label><input type="color" id="textStrokeColor" value="#ffffff"><input type="number" id="textStrokeWidth" min="0" max="40" value="3" style="width:54px"></div></div>
+        <button class="smallbtn" id="placeText" style="width:100%">テキストツールで配置</button>
+        <button class="smallbtn" id="editTextLayer" style="width:100%;margin-top:6px">選択中の文字を編集</button>
+      </section>
+      <section class="panel">
+        <div class="panelhead">ANIMATION DESK <span>フレームアニメ</span></div>
+        <div class="layeractions"><button class="smallbtn" id="framePrev">◀ 前</button><button class="smallbtn" id="frameNext">次 ▶</button><button class="smallbtn" id="frameAdd">＋追加</button></div>
+        <div class="layeractions"><button class="smallbtn" id="frameDuplicate">複製</button><button class="smallbtn" id="frameDelete">削除</button><button class="smallbtn" id="animationPlay">▶ 再生</button></div>
+        <div class="field"><div class="fieldrow"><label for="animationFps">FPS</label><span id="animationFpsValue">12</span></div><input id="animationFps" type="range" min="1" max="30" value="12"></div>
+        <div class="field"><div class="fieldrow"><label for="onionSkin">オニオンスキン</label><input id="onionSkin" type="checkbox"></div></div>
+        <div id="timelineFrames" class="timelineframes"></div>
+        <button class="smallbtn" id="animationExport" style="width:100%;margin-top:7px">WebM動画を書き出す</button>
+        <div class="muted" style="font-size:10px;margin-top:5px">簡易フレームアニメーション。フレームごとにレイヤーを保持します。</div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">CREATIVE LAB <span>編集ツール</span></div>
+        <div class="field"><div class="fieldrow"><label>フィルター・効果</label></div>
+          <div class="toolgrid">
+            <button class="smallbtn" data-filter="grayscale">モノクロ</button><button class="smallbtn" data-filter="sepia">セピア</button><button class="smallbtn" data-filter="invert">反転</button><button class="smallbtn" data-filter="blur">ぼかし</button><button class="smallbtn" data-filter="pixelate">ピクセル化</button><button class="smallbtn" data-filter="posterize">ポスタライズ</button><button class="smallbtn" data-filter="noise">ノイズ</button><button class="smallbtn" data-filter="hue">色相回転</button><button class="smallbtn" data-filter="threshold">二値化</button><button class="smallbtn" data-filter="emboss">エンボス</button><button class="smallbtn" data-filter="sharpen">シャープ</button><button class="smallbtn" data-filter="edge">輪郭抽出</button>
+          </div>
+        </div>
+        <div class="field"><div class="fieldrow"><label>キャンバス変形</label></div><div class="toolgrid"><button class="smallbtn" id="flipH">左右反転</button><button class="smallbtn" id="flipV">上下反転</button><button class="smallbtn" id="rotate90">90°回転</button><button class="smallbtn" id="randomPalette">配色を生成</button></div></div>
+        <div class="layeractions"><button class="smallbtn" id="exportOra">OpenRaster書き出し</button></div>
+      </section>
+      <section class="panel" id="transformPanel">
+        <div class="panelhead"><span class="paneltitle">OBJECT TRANSFORM</span><span>選択レイヤーを変形</span></div>
+        <div class="muted panelnote">Vで変形。絵の上をクリックしてそのレイヤーを自動選択し、そのままドラッグで移動。上中央で回転、四隅で縦横別に拡大縮小。Shiftで縦横比固定。</div>
+        <div class="field"><div class="fieldrow"><label for="objectRotation">回転角度</label><output id="objectRotationValue">0°</output></div><input id="objectRotation" type="range" min="-180" max="180" value="0"></div>
+        <div class="field"><div class="fieldrow"><label for="objectScale">拡大・縮小</label><output id="objectScaleValue">100%</output></div><input id="objectScale" type="range" min="10" max="400" value="100"></div>
+        <div class="field twofields"><label>位置 X <input id="objectX" type="number" value="0" step="1"></label><label>位置 Y <input id="objectY" type="number" value="0" step="1"></label></div>
+        <div class="toolgrid"><button class="smallbtn" id="applyObjectTransform">変形を適用</button><button class="smallbtn" id="resetObjectTransform">数値を初期化</button><button class="smallbtn" id="rotateLeft15">−15°</button><button class="smallbtn" id="rotateRight15">＋15°</button><button class="smallbtn" id="rotateObject90">90°回転</button><button class="smallbtn" id="flipObjectH">左右反転</button></div>
+      </section>
+      <section class="panel" id="feelPanel">
+        <div class="panelhead">STYLUS FEEL <span>描き心地シミュレーター</span></div>
+        <div class="field"><div class="fieldrow"><label for="feelPreset">描き心地</label></div><select id="feelPreset" class="fieldselect"><option value="neutral">標準・滑らか</option><option value="paper">画用紙の抵抗</option><option value="glass">ガラス面・低摩擦</option><option value="canvas">キャンバス布</option><option value="rough">ざらざら鉛筆</option><option value="ink">インクペン・粘り</option><option value="soft">水彩筆・柔らか</option></select></div>
+        <div class="field"><div class="fieldrow"><label for="feelFriction">摩擦感</label><output id="feelFrictionValue">25%</output></div><input id="feelFriction" type="range" min="0" max="100" value="25"></div>
+        <div class="field"><div class="fieldrow"><label for="feelSmoothing">追従補間</label><output id="feelSmoothingValue">35%</output></div><input id="feelSmoothing" type="range" min="0" max="100" value="35"></div>
+        <div class="field"><div class="fieldrow"><label for="pressureCurve">筆圧カーブ</label><output id="pressureCurveValue">標準</output></div><input id="pressureCurve" type="range" min="50" max="200" value="100"></div>
+        <div class="fieldrow"><label for="tiltEnabled">ペン傾きで太さを変える</label><input id="tiltEnabled" type="checkbox" checked></div>
+      </section>
+      <section class="panel" id="devicePanel">
+        <div class="panelhead">DEVICE & PERFORMANCE <span>外部機器・軽量化</span></div>
+        <div class="devicechips"><span id="pointerTypeChip">入力: マウス</span><span id="devicePressureChip">筆圧: 待機</span></div>
+        <div class="fieldrow"><label for="lowMemoryMode">軽量モード</label><input id="lowMemoryMode" type="checkbox"></div>
+        <div class="fieldrow"><label for="tabletMode">タブレットUI</label><input id="tabletMode" type="checkbox"></div>
+        <button class="smallbtn" id="detectDevice" style="width:100%;margin-top:7px">入力デバイスを確認</button>
+        <p class="muted panelnote">Wacom / Huion / XP-PenなどはブラウザのPointer Events経由で筆圧・傾きを取得。メーカー専用機能の一部は別途ドライバーが必要。</p>
+      </section>
+      <section class="panel">
+        <div class="panelhead">LAYERS <span id="layerCount">1 layer</span></div>
+        <div class="field"><div class="fieldrow"><label for="layerOpacity">レイヤー不透明度</label><span id="layerOpacityValue">100%</span></div><input id="layerOpacity" type="range" min="0" max="100" value="100"></div>
+        <div class="blendrow"><select id="blendMode"><option value="source-over">通常</option><option value="multiply">乗算</option><option value="screen">スクリーン</option><option value="overlay">オーバーレイ</option><option value="soft-light">ソフトライト</option><option value="darken">比較（暗）</option><option value="lighten">比較（明）</option><option value="color-dodge">覆い焼きカラー</option><option value="color-burn">焼き込みカラー</option><option value="difference">差の絶対値</option></select></div>
+        <div class="layers" id="layersList" style="margin-top:9px"></div>
+        <div class="layeractions"><button class="smallbtn" id="addLayer">＋ レイヤー</button><button class="smallbtn" id="duplicateLayer">複製 · Ctrl+J</button><button class="smallbtn" id="deleteLayer">削除</button></div>
+        <div class="layeractions"><button class="smallbtn" id="layerUp">▲ 上へ</button><button class="smallbtn" id="layerDown">▼ 下へ</button><button class="smallbtn" id="mergeDown">結合</button></div>
+      </section>
+      <section class="panel">
+        <div class="panelhead">CANVAS <span>キャンバスと出力</span></div>
+        <div class="field"><div class="fieldrow"><label for="canvasPreset">サイズプリセット</label></div><select id="canvasPreset" class="fieldselect"><option value="custom">カスタム</option><option value="square">正方形 2048</option><option value="landscape">横長 1920×1080</option><option value="portrait">縦長 1080×1920</option><option value="a4p">A4 縦・300dpi</option><option value="a4l">A4 横・300dpi</option><option value="a5p">A5 縦・300dpi</option><option value="b5p">B5 縦・350dpi</option><option value="comic">漫画原稿・高解像度</option><option value="4k">4K UHD 3840×2160</option><option value="social">SNS投稿 1080×1350</option><option value="story">ストーリー 1080×1920</option><option value="banner">バナー 2560×720</option></select></div>
+        <div class="field"><div class="fieldrow"><label for="documentDpi">解像度メタ情報</label><span>dpi</span></div><input id="documentDpi" type="number" min="36" max="1200" value="300"></div>
+        <div class="field"><div class="fieldrow"><label>背景グリッド</label><input type="checkbox" id="gridToggle" checked></div></div>
+        <div class="field"><div class="fieldrow"><label>キャンバス背景</label><select id="backgroundMode"><option value="transparent">透明</option><option value="white">白</option><option value="dark">ダークグレー</option></select></div></div>
+        <div class="layeractions"><button class="smallbtn" id="fitBtn">画面に合わせる</button><button class="smallbtn" id="centerBtn">中央へ</button></div>
+        <div class="layeractions"><button class="smallbtn" id="exportPng">PNG書き出し</button><button class="smallbtn" id="exportJpg">JPG書き出し</button></div>
+        <div class="layeractions"><button class="smallbtn" id="exportWebp">WebP書き出し</button><button class="smallbtn" id="saveProject">プロジェクト保存</button></div>
+        <div class="field"><div class="fieldrow"><label for="exportScale">書き出し倍率</label></div><select id="exportScale" class="fieldselect"><option value="1">1× 原寸</option><option value="2">2× 高解像度</option><option value="3">3×</option><option value="4">4×</option><option value="6">6× 超高精細</option><option value="8">8× 最大品質</option></select></div>
+        <div class="field"><div class="fieldrow"><label for="exportQuality">JPG / WebP品質</label><span id="exportQualityValue">92%</span></div><input id="exportQuality" type="range" min="40" max="100" value="92"></div>
+        <div class="field"><div class="fieldrow"><label for="exportMatte">透明部分の背景色</label><input type="color" id="exportMatte" value="#ffffff"></div></div>
+        <button class="smallbtn" id="loadProject" style="width:100%;margin-top:7px">プロジェクトを開く</button><div class="layeractions"><button class="smallbtn" id="exportPsd">PSDで保存</button><button class="smallbtn" id="openPsd">PSDを開く</button></div><div class="muted panelnote">PSD：通常ピクセルレイヤー・8bit RGBの互換を実装。Photoshop固有の調整レイヤーやスマートオブジェクト等は対象外。</div><input id="projectInput" type="file" accept=".pforge,.json,application/json" hidden>
+      </section>
+    </aside>
+  </main>
+</div>
+<div class="busyback hidden" id="busyOverlay" role="status" aria-live="polite"><div class="busycard"><div class="spinner"></div><div class="busytitle" id="busyTitle">処理中...</div><div class="busytext" id="busyText">キャンバスを準備しています</div><div class="progressTrack"><div id="busyProgress" class="progressFill"></div></div><div class="progressMeta"><span id="busyPercent">0%</span><span id="busyBytes">画面は応答中です</span></div></div></div>
+<div class="modalback hidden" id="newModal"><div class="modal"><h2>新しいキャンバス</h2><div class="field"><div class="fieldrow"><label>プリセット</label></div><select id="newPreset" class="fieldselect"><option value="custom">カスタム</option><option value="square">正方形 2048</option><option value="landscape">横長 1920×1080</option><option value="portrait">縦長 1080×1920</option><option value="a4p">A4 縦・300dpi</option><option value="a4l">A4 横・300dpi</option><option value="a5p">A5 縦・300dpi</option><option value="b5p">B5 縦・350dpi</option><option value="comic">漫画原稿・高解像度</option><option value="4k">4K UHD 3840×2160</option><option value="social">SNS投稿 1080×1350</option><option value="story">ストーリー 1080×1920</option><option value="banner">バナー 2560×720</option></select></div><div class="field"><div class="fieldrow"><label>幅（px）</label></div><input type="number" id="newWidth" min="1" max="12000" value="1600"></div><div class="field"><div class="fieldrow"><label>高さ（px）</label></div><input type="number" id="newHeight" min="1" max="12000" value="1000"></div><div class="field"><div class="fieldrow"><label>解像度（dpi）</label></div><input type="number" id="newDpi" min="36" max="1200" value="300"></div><div class="field"><div class="fieldrow"><label>背景</label></div><select id="newBackground"><option value="transparent">透明</option><option value="white">白</option><option value="dark">ダークグレー</option></select></div><div class="modalbuttons"><button class="smallbtn" id="cancelNew">キャンセル</button><button class="topbtn primary" id="createNew">作成</button></div></div></div>
+<script src="psd-compat.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
