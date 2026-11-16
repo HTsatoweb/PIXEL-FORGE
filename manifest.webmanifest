@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL FORGE STUDIO v10",
+  "short_name": "PIXEL FORGE",
+  "description": "すべての画材・設定・レイヤーを完全保存できるデジタルペイントスタジオ",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
