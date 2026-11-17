@@ -1,0 +1,14 @@
+{
+  "name": "PIXEL FORGE STUDIO v11",
+  "short_name": "PIXEL FORGE",
+  "description": "画材・設定・レイヤーを保存できるデジタルペイントスタジオ。Edge・タブレット対応を強化。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
