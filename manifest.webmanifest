@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL FORGE STUDIO v13",
+  "short_name": "PIXEL FORGE v13",
+  "description": "滑らかな描画、Edge画材選択、安定したフレームアニメーションに対応するデジタルペイントスタジオ。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
