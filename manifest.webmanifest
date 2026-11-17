@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL FORGE STUDIO v14",
+  "short_name": "PIXEL FORGE v14",
+  "description": "高精度ライブ筆跡合成、詳細な筆圧・ストローク調整、安定したデジタルペイントとフレームアニメーションに対応するスタジオ。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
