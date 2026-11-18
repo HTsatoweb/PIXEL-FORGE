@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL FORGE STUDIO v16",
+  "short_name": "PIXEL FORGE v16",
+  "description": "安定したストローク表示、精密な筆先・顔料・紙内部構造の微調整、小画面スマートフォンやタブレットの操作性を強化したデジタルペイントスタジオ。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
