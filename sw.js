@@ -1,0 +1,68 @@
+/* PIXEL FORGE STUDIO v25 — resilient app-shell cache. */
+const CACHE_NAME = 'pixelforge-web-v25.0';
+const CORE_FILES = [
+  './', './index.html', './style.css', './mobile-fix-v19.css', './home-ui-v21.css',
+  './app.js', './ui-enhance.js', './home-ui-v21.js', './psd-compat.js', './compatibility.js', './material-preview.js'
+];
+const OPTIONAL_FILES = [
+  './help.html', './water-worker-v8.js', './manifest.webmanifest', './icon.svg',
+  './icon-192.png', './icon-512.png', './apple-touch-icon.png',
+  './CHANGELOG_v25_JA.md', './FEATURES_v25_JA.md', './TEST_RESULTS_v25_JA.md',
+  './EDGE_CHECKLIST_v25_JA.md', './START_HERE_JA.md', './README_JA.md'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    // Cache core files individually so one optional missing document cannot abort install.
+    const coreResults = await Promise.allSettled(CORE_FILES.map(async path => {
+      const response = await fetch(new Request(new URL(path, self.registration.scope), {cache:'reload'}));
+      if (!response.ok) throw new Error(path + ' returned HTTP ' + response.status);
+      await cache.put(path, response);
+    }));
+    const failedCore = coreResults.map((result, index) => result.status === 'rejected' ? CORE_FILES[index] : null).filter(Boolean);
+    if (failedCore.length) throw new Error('Required app-shell files could not be cached: ' + failedCore.join(', '));
+    await Promise.allSettled(OPTIONAL_FILES.map(async path => {
+      try {
+        const response = await fetch(new Request(new URL(path, self.registration.scope), {cache:'reload'}));
+        if (response.ok) await cache.put(path, response);
+      } catch (error) {
+        console.info('Optional offline asset skipped:', path, error);
+      }
+    }));
+    await self.skipWaiting();
+  })());
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(
+    keys.filter(key => key.startsWith('pixelforge-web-') && key !== CACHE_NAME).map(key => caches.delete(key))
+  )).then(() => self.clients.claim()));
+});
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET') return;
+  let url;
+  try { url = new URL(request.url); } catch (_) { return; }
+  if (url.origin !== self.location.origin) return;
+
+  if (request.mode === 'navigate') {
+    event.respondWith(fetch(request).then(response => {
+      if (response && response.ok) {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put('./index.html', copy)).catch(()=>{});
+      }
+      return response;
+    }).catch(async () => (await caches.match(request)) || (await caches.match('./index.html')) || Response.error()));
+    return;
+  }
+
+  event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => {
+    if (response && response.ok) {
+      const copy = response.clone();
+      caches.open(CACHE_NAME).then(cache => cache.put(request, copy)).catch(()=>{});
+    }
+    return response;
+  })));
+});
