@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL FORGE STUDIO v20",
+  "short_name": "PIXEL FORGE v20",
+  "description": "PC・スマホ別ホーム、作品ライブラリ、高精細ブラシを備えたデジタルペイントスタジオ。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
