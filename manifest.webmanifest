@@ -1,0 +1,19 @@
+{
+  "name": "PIXEL FORGE STUDIO v18",
+  "short_name": "PIXEL FORGE v18",
+  "description": "作品ライブラリ・スマホ操作・高精細ブラシ・発光色パレットを備えたデジタルペイントスタジオ。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
