@@ -1,0 +1,136 @@
+/* PIXEL FORGE STUDIO v31 · hard-left mobile editor actions, draggable UI layout, rainbow brush finish */
+:root{
+  --pf-v31-cyan:#7ceaff;
+  --pf-v31-blue:#79b9ff;
+  --pf-v31-violet:#bf8cff;
+  --pf-v31-pink:#ff79d8;
+  --pf-v31-motion:220ms;
+}
+
+/* Correct the editor header at the layout level. Old mobile layers set .brand flex:1,
+   which can consume the whole row. Fixed action widths + explicit order prevent that. */
+@media (max-width:760px), (max-width:900px) and (any-pointer:coarse), (max-height:520px) and (any-pointer:coarse){
+  #app .topbar{
+    display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
+    justify-content:flex-start!important;align-items:center!important;direction:ltr!important;
+    gap:3px!important;padding-left:max(5px,env(safe-area-inset-left))!important;
+    padding-right:max(5px,env(safe-area-inset-right))!important;
+    overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;
+    scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important;
+    min-width:0!important;box-sizing:border-box!important;
+  }
+  #app .topbar::-webkit-scrollbar{display:none!important}
+  #app .topbar>.brand{
+    order:0!important;flex:0 0 94px!important;width:94px!important;min-width:72px!important;
+    max-width:94px!important;margin:0!important;padding:0!important;gap:5px!important;
+    overflow:hidden!important;white-space:nowrap!important;font-size:10px!important;letter-spacing:.25px!important;
+  }
+  #app .topbar>.brand .brandmark{flex:0 0 22px!important;width:22px!important;height:22px!important}
+  #app .topbar>.brand>div:last-child{flex:1 1 auto!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+  #app .topbar>.brand small{display:none!important}
+  #app .topbar>.menu,#app .topbar>.topspacer,#app .topbar>.docname{display:none!important;flex:0 0 0!important;width:0!important;margin:0!important;padding:0!important}
+  #app .topbar>#commandPaletteButton{order:1!important}
+  #app .topbar>#homeButton{order:2!important}
+  #app .topbar>#settingsButton{order:3!important}
+  #app .topbar>#newBtn{order:4!important}
+  #app .topbar>#saveBtn{order:5!important}
+  #app .topbar>#helpSiteButton{order:6!important;display:none!important}
+  #app .topbar>#panelToggle{order:7!important;display:none!important}
+  #app .topbar>.topbtn{
+    display:inline-flex!important;position:relative!important;inset:auto!important;float:none!important;
+    flex:0 0 35px!important;width:35px!important;min-width:35px!important;max-width:35px!important;
+    height:39px!important;min-height:39px!important;max-height:39px!important;
+    margin:0!important;padding:0!important;align-items:center!important;justify-content:center!important;
+    border-radius:10px!important;line-height:1!important;font-size:17px!important;
+    transform:none;white-space:nowrap!important;touch-action:manipulation!important;
+  }
+  #app .topbar>.topbtn .toplabel{display:none!important}
+  #app .topbar>#homeButton{background:linear-gradient(145deg,#314c67,#213247)!important;border-color:#a9c8e9!important;color:#eef8ff!important}
+  #app .topbar>#settingsButton{background:linear-gradient(145deg,#29394d,#202c3a)!important}
+  #app .topbar>#saveBtn{background:linear-gradient(145deg,#a6d2ff,#7daee9)!important;color:#102238!important;border-color:#c0e0ff!important}
+  #app .topbar>.topbtn:focus-visible{outline:2px solid var(--pf-v31-cyan)!important;outline-offset:1px!important}
+  #app .mobile-dock{direction:ltr!important;justify-content:flex-start!important;align-content:center!important;margin-inline:0 auto!important}
+}
+@media(max-width:380px){
+  #app .topbar{gap:2px!important;padding-inline:max(4px,env(safe-area-inset-left)) max(4px,env(safe-area-inset-right))!important}
+  #app .topbar>.brand{flex-basis:78px!important;width:78px!important;max-width:78px!important;min-width:66px!important;font-size:9px!important;gap:4px!important}
+  #app .topbar>.brand .brandmark{flex-basis:20px!important;width:20px!important;height:20px!important}
+  #app .topbar>.topbtn{flex-basis:32px!important;width:32px!important;min-width:32px!important;max-width:32px!important;height:36px!important;min-height:36px!important}
+}
+
+/* Distinct but lightweight near-future feedback. */
+#app .topbar{position:relative}
+#app .topbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--pf-v31-cyan),var(--pf-v31-violet),var(--pf-v31-pink),transparent);opacity:.5;transform-origin:left;animation:pf-v31-scan 6.2s ease-in-out infinite}
+@keyframes pf-v31-scan{0%,100%{transform:scaleX(.12);opacity:.16}50%{transform:scaleX(1);opacity:.68}}
+#app .topbar>.topbtn,.mobile-dock button,.leftbar .tool,.rightbar button,.pf-home-btn,.pf-home-mobile-dock button{
+  transition:transform var(--pf-v31-motion) cubic-bezier(.2,.78,.2,1),box-shadow var(--pf-v31-motion) ease,border-color var(--pf-v31-motion) ease,filter var(--pf-v31-motion) ease!important;
+}
+@media(hover:hover) and (pointer:fine){
+  #app .topbar>.topbtn:not(:disabled):hover,.leftbar .tool:not(:disabled):hover,.rightbar button:not(:disabled):hover,.pf-home-btn:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 8px 22px #58bdff30;border-color:#83dfff}
+}
+#app .topbar>.topbtn:not(:disabled):active,.mobile-dock button:not(:disabled):active,.leftbar .tool:not(:disabled):active,.rightbar button:not(:disabled):active,.pf-home-btn:not(:disabled):active{transform:translateY(1px) scale(.94);filter:brightness(1.15)}
+.leftbar .tool.active{isolation:isolate}
+.leftbar .tool.active::after{content:"";position:absolute;inset:-2px;border:1px solid #83dfff88;border-radius:12px;pointer-events:none;animation:pf-v31-ring 2.6s ease-in-out infinite}
+@keyframes pf-v31-ring{0%,100%{opacity:.2;transform:scale(.97)}50%{opacity:.8;transform:scale(1.04)}}
+
+/* UI placement editor controls. Panels move with the individual translate property,
+   so the editor's existing transforms (drawer and centred dock) are preserved. */
+.pf-ui-positionable{translate:var(--pf-ui-offset-x,0px) var(--pf-ui-offset-y,0px)}
+.pf-ui-drag-handle{display:none;position:absolute!important;z-index:10005!important;width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important;padding:0!important;border:1px solid #92e8ff!important;border-radius:8px!important;background:linear-gradient(145deg,#274d67,#302b56)!important;color:#eafaff!important;font-size:17px!important;line-height:1!important;box-shadow:0 0 16px #66dfff44!important;touch-action:none!important;cursor:grab!important;user-select:none!important;-webkit-user-select:none!important}
+body.pf-ui-layout-editing{cursor:crosshair!important}
+body.pf-ui-layout-editing .pf-ui-positionable{outline:1px dashed #78e4ff!important;outline-offset:2px!important;box-shadow:0 0 0 2px #57bfff16,0 0 24px #5acbff1b!important;will-change:translate!important}
+body.pf-ui-layout-editing .pf-ui-drag-handle{display:inline-flex!important;align-items:center!important;justify-content:center!important}
+body.pf-ui-layout-editing #app .topbar{padding-left:36px!important}
+body.pf-ui-layout-editing #app .topbar,body.pf-ui-layout-editing #app .contextbar,body.pf-ui-layout-editing #app .leftbar{position:relative}
+@media(min-width:761px) and (min-height:521px){body.pf-ui-layout-editing #app .rightbar{position:relative!important}}
+body.pf-ui-layout-editing #app .contextbar{padding-left:36px!important}
+body.pf-ui-layout-editing #app .leftbar{padding-top:38px!important}
+body.pf-ui-layout-editing #app .mobile-dock{padding-left:36px!important}
+body.pf-ui-layout-editing #app .topbar>.pf-ui-drag-handle{left:4px!important;right:auto!important;top:50%!important;transform:translateY(-50%)!important}
+body.pf-ui-layout-editing #app .contextbar>.pf-ui-drag-handle{left:4px!important;right:auto!important;top:50%!important;transform:translateY(-50%)!important}
+body.pf-ui-layout-editing #app .leftbar>.pf-ui-drag-handle{left:8px!important;right:auto!important;top:5px!important}
+body.pf-ui-layout-editing #app .rightbar>.pf-ui-drag-handle{left:8px!important;right:auto!important;top:8px!important}
+body.pf-ui-layout-editing #app .mobile-dock>.pf-ui-drag-handle{left:5px!important;right:auto!important;top:50%!important;transform:translateY(-50%)!important}
+body.pf-ui-layout-editing .pf-ui-drag-handle:active{cursor:grabbing!important;transform:scale(.95)!important}
+body.pf-ui-layout-editing .pf-ui-reorder-dragging{opacity:.72!important;z-index:10020!important;box-shadow:0 0 0 2px #8beaff,0 8px 24px #0009!important}
+.pf-ui-customize-toolbar{position:fixed;z-index:30000;top:max(8px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:7px;max-width:calc(100vw - 16px);padding:8px 10px;border:1px solid #5cbfe8;border-radius:14px;background:linear-gradient(135deg,#172d42f5,#2c214af5);color:#effaff;box-shadow:0 12px 38px #0009,0 0 24px #6bdfff20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font:600 11px/1.3 system-ui,sans-serif}
+.pf-ui-customize-toolbar .pf-ui-customize-label{display:grid;gap:2px;min-width:0;max-width:190px}
+.pf-ui-customize-toolbar .pf-ui-customize-label b{font-size:11px;white-space:nowrap}
+.pf-ui-customize-toolbar .pf-ui-customize-label small{font-size:9px;font-weight:500;color:#a9c9df;white-space:normal}
+.pf-ui-customize-toolbar button{min-height:35px;padding:6px 10px;border:1px solid #567a9e;border-radius:9px;background:#233d56;color:#f3fbff;font-weight:700;white-space:nowrap}
+.pf-ui-customize-toolbar button[data-action="done"]{border-color:#a7dbff;background:linear-gradient(135deg,#a5dfff,#b8a0f2);color:#14253a}
+.pf-ui-customize-toolbar button:active{transform:scale(.95)}
+.pf-ui-layout-settings{margin:13px 0;padding:13px;border:1px solid #4b6682;border-radius:13px;background:linear-gradient(145deg,#182d42,#211f3b);box-shadow:inset 0 1px #ffffff0a}
+.pf-ui-layout-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.pf-ui-layout-head>div{display:grid;gap:5px;min-width:0}
+.pf-ui-layout-head b{font-size:12px;color:#eff8ff}
+.pf-ui-layout-head small,.pf-ui-layout-status{font-size:10px;line-height:1.55;color:#a9bfd4}
+.pf-ui-layout-tag{flex:0 0 auto;padding:4px 7px;border:1px solid #725e9c;border-radius:99px;color:#d4c5ff;font-size:9px;font-weight:800;letter-spacing:.8px}
+.pf-ui-layout-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.pf-ui-layout-actions button{flex:1 1 145px;min-height:42px}
+.pf-ui-layout-status{display:block;margin-top:8px}
+
+/* Rainbow mode stays a smooth ribbon rather than a row of coloured dots. */
+#brushPreset option[value="rainbow"]{font-weight:800}
+body.pf-rainbow-brush-active #brushPreset{border-color:#d99aff;box-shadow:0 0 0 1px #80dcff,0 0 16px #ef75d844}
+
+@media(max-width:760px){
+ .pf-home-mobile-header{justify-content:flex-start!important;gap:8px!important;overflow:hidden!important}
+ .pf-home-mobile-header .pf-home-brand{flex:0 1 142px!important;min-width:0!important;max-width:142px!important;margin:0!important}
+ .pf-home-mobile-head-actions{display:flex!important;flex:0 0 auto!important;justify-content:flex-start!important;gap:5px!important;margin:0!important}
+ .pf-home-mobile-head-actions button{flex:0 0 38px!important;width:38px!important;min-width:38px!important;height:38px!important;min-height:38px!important}
+ .pf-ui-customize-toolbar{top:max(6px,env(safe-area-inset-top));gap:5px;padding:7px;border-radius:12px}
+ .pf-ui-customize-toolbar .pf-ui-customize-label{max-width:112px}
+ .pf-ui-customize-toolbar .pf-ui-customize-label small{font-size:8px}
+ .pf-ui-customize-toolbar button{min-height:36px;padding:6px 8px;font-size:10px}
+ .pf-ui-layout-settings{padding:10px}
+ .pf-ui-layout-head{display:grid;gap:8px}
+ .pf-ui-layout-actions{display:grid;grid-template-columns:1fr}
+ .pf-ui-layout-actions button{width:100%;min-height:45px}
+}
+@media(prefers-reduced-motion:reduce){
+ #app .topbar::after,.leftbar .tool.active::after{animation:none!important}
+ #app .topbar>.topbtn,.mobile-dock button,.leftbar .tool,.rightbar button,.pf-home-btn{transition:none!important}
+}
+body.pf-reduced-motion #app .topbar::after,body.pf-reduced-motion .leftbar .tool.active::after{animation:none!important}
+body.pf-reduced-motion #app .topbar>.topbtn,body.pf-reduced-motion .mobile-dock button,body.pf-reduced-motion .leftbar .tool,body.pf-reduced-motion .rightbar button,body.pf-reduced-motion .pf-home-btn{transition:none!important}

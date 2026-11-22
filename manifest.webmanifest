@@ -1,0 +1,31 @@
+{
+  "name": "PIXEL FORGE STUDIO v31.0",
+  "short_name": "PIXEL FORGE v31",
+  "description": "スマホUIの配置カスタマイズ、虹色ブラシ、近未来モーションを備えたデジタルペイントスタジオ。",
+  "lang": "ja-JP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#10151d",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
