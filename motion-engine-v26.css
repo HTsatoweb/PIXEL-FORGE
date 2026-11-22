@@ -1,0 +1,169 @@
+/* PIXEL FORGE STUDIO v26 · interaction motion system
+   Decorative only: this layer never touches drawing canvases or brush input. */
+:root {
+  --pf26-ease: cubic-bezier(.2,.78,.25,1);
+  --pf26-spring: cubic-bezier(.18,.82,.22,1.18);
+  --pf26-fast: 150ms;
+  --pf26-mid: 230ms;
+  --pf26-glow: #8fc7ff;
+}
+
+/* 01–15 · buttons, menus and touch targets */
+button:not(:disabled), .pf-home-btn, .pf-home-mobile-dock button,
+.pf-mobile-quick-actions button, .mobile-dock button, .pf-command-item {
+  -webkit-tap-highlight-color: transparent;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+button:not(:disabled):focus-visible, [role="button"]:focus-visible,
+.tool:focus-visible, .swatch:focus-visible, .framechip:focus-visible {
+  outline: 2px solid #8fc7ff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px #82baff24;
+}
+button:disabled { cursor: not-allowed; filter: saturate(.45); }
+@media (hover:hover) and (pointer:fine) {
+  .topbar button:not(:disabled):hover, .menu button:not(:disabled):hover,
+  .toolbar button:not(:disabled):hover, .iconbtn:not(:disabled):hover {
+    transform: translateY(-1.5px);
+  }
+  .topbtn.primary:not(:disabled):hover, .pf-home-primary:not(:disabled):hover {
+    transform: translateY(-2px) scale(1.012);
+    box-shadow: 0 7px 18px #6ea9ee35;
+  }
+  .smallbtn:not(:disabled):hover, .panel-toolbar-actions button:not(:disabled):hover,
+  .pf-art-tools button:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+  .pf-home-btn:not(:disabled):hover, .pf-home-mobile-dock button:not(:disabled):hover,
+  .pf-mobile-quick-actions button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px #0003;
+  }
+}
+.pf-pointer-pressed { transform: scale(.972) translateY(1px) !important; filter: brightness(1.12); }
+button.pf-motion-click { transform-origin: center; }
+
+/* 16–28 · left tool rail and tool selection */
+.tool { transition: transform var(--pf26-fast) var(--pf26-spring), background-color 180ms ease,
+  color 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+.tool.active { box-shadow: inset 0 0 0 1px #80b8f0, 0 3px 13px #6eaff025; }
+@media (hover:hover) and (pointer:fine) { .tool:not(.active):hover { transform: translateX(2px) scale(1.035); } }
+.tool.pf-tool-pulse { animation: pf26-tool-pulse 360ms var(--pf26-spring) both; }
+@keyframes pf26-tool-pulse {
+  0% { transform: scale(.86) rotate(-5deg); }
+  62% { transform: scale(1.09) rotate(2deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+.tool.active::before { transition: opacity 180ms ease, transform 180ms ease; }
+
+/* 29–41 · colors, swatches and brush presets */
+.swatch { transition: transform 170ms var(--pf26-spring), box-shadow 170ms ease, border-color 170ms ease; }
+@media (hover:hover) and (pointer:fine) { .swatch:hover { transform: translateY(-2px) scale(1.07); box-shadow: 0 5px 12px #0004; } }
+.swatch.pf-swatch-pulse { animation: pf26-swatch-pulse 390ms var(--pf26-spring) both; }
+@keyframes pf26-swatch-pulse {
+  0% { transform: scale(.82); box-shadow: 0 0 0 0 #9ccfff00; }
+  55% { transform: scale(1.16); box-shadow: 0 0 0 5px #9ccfff35; }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 #9ccfff00; }
+}
+.pf-brush-picker-arrow { transform-origin: center; }
+[aria-expanded="true"] .pf-brush-picker-arrow { transform: rotate(180deg); }
+
+/* 42–55 · layers, frames and editing objects */
+.layer { transition: transform 180ms var(--pf26-ease), border-color 160ms ease,
+  background-color 160ms ease, box-shadow 160ms ease; }
+@media (hover:hover) and (pointer:fine) { .layer:not(.active):hover { transform: translateX(2px); border-color: #59799d; } }
+.layer.pf-layer-select-pulse { animation: pf26-layer-focus 330ms var(--pf26-ease) both; }
+@keyframes pf26-layer-focus {
+  0% { transform: translateX(-4px); box-shadow: inset 0 0 0 1px #9bcfff00; }
+  60% { transform: translateX(2px); box-shadow: inset 0 0 0 1px #9bcfff65, 0 4px 14px #6aabed20; }
+  100% { transform: translateX(0); box-shadow: inset 0 0 0 1px #9bcfff00; }
+}
+.framechip { transition: transform 160ms var(--pf26-spring), background-color 150ms ease, box-shadow 150ms ease; }
+.framechip.pf-frame-pulse { animation: pf26-frame-pop 320ms var(--pf26-spring) both; }
+@keyframes pf26-frame-pop { 0% { transform: scale(.9) translateY(2px); } 70% { transform: scale(1.06); } 100% { transform: scale(1); } }
+
+/* 56–68 · controls and setting feedback */
+.field input:not([type="range"]), .field select, .field textarea,
+.contextbar input:not([type="range"]), .contextbar select,
+.panel-search, .pf-command-search input {
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus,
+.contextbar input:focus, .contextbar select:focus, .panel-search:focus {
+  border-color: #78aee7;
+  box-shadow: 0 0 0 3px #78aee729;
+  outline: none;
+}
+.pf-setting-changed { animation: pf26-setting-flash 520ms ease-out both; }
+@keyframes pf26-setting-flash {
+  0% { box-shadow: 0 0 0 0 #8fc7ff00; }
+  25% { box-shadow: 0 0 0 3px #8fc7ff38; }
+  100% { box-shadow: 0 0 0 0 #8fc7ff00; }
+}
+input[type="range"] { accent-color: #8fc1f5; }
+input[type="range"]::-webkit-slider-thumb { transition: transform 140ms var(--pf26-spring), box-shadow 140ms ease; }
+input[type="range"]::-moz-range-thumb { transition: transform 140ms var(--pf26-spring), box-shadow 140ms ease; }
+input[type="range"].pf-range-active::-webkit-slider-thumb { transform: scale(1.2); box-shadow: 0 0 0 5px #8fc7ff28; }
+input[type="range"].pf-range-active::-moz-range-thumb { transform: scale(1.2); box-shadow: 0 0 0 5px #8fc7ff28; }
+input[type="checkbox"], input[type="radio"] { accent-color: #8ebef0; transition: filter 150ms ease; }
+input[type="checkbox"]:focus-visible, input[type="radio"]:focus-visible { outline: 2px solid #8fc7ff; outline-offset: 3px; }
+
+/* 69–80 · panels, navigation and search */
+.panel { transition: border-color 170ms ease, background-color 170ms ease; }
+.panelhead { transition: color 160ms ease, background-color 160ms ease; cursor: pointer; }
+.panelhead:after { transform-origin: center; transition: transform 210ms var(--pf26-ease), color 160ms ease; }
+.panel.folded .panelhead:after { transform: rotate(-90deg); }
+@media (hover:hover) and (pointer:fine) { .panelhead:hover { color: #e8f3ff; } }
+.panel-search-results { transform-origin: top center; }
+.panel-search-results.open { animation: pf26-results-in 180ms var(--pf26-ease) both; }
+@keyframes pf26-results-in { from { opacity: 0; transform: translateY(-5px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.panel-search-result { transition: background-color 140ms ease, transform 140ms var(--pf26-ease), padding-left 140ms ease; }
+.panel-search-result:hover { transform: translateX(3px); }
+.drawer-scrim { transition: opacity 190ms ease, backdrop-filter 190ms ease; }
+.panel-resizer.dragging:before { width: 4px; left: 1px; background: #8fc7ff; }
+
+/* 81–90 · project library, cards and home screen */
+.pf-art-card { transition: transform 200ms var(--pf26-ease), border-color 180ms ease, box-shadow 180ms ease; }
+@media (hover:hover) and (pointer:fine) { .pf-art-card:hover { transform: translateY(-4px); box-shadow: 0 15px 32px #0004; } }
+.pf-art-card.pf-card-enter { animation: pf26-card-enter 360ms var(--pf26-ease) both; }
+@keyframes pf26-card-enter { from { opacity: 0; transform: translateY(12px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.pf-art-preview img { transition: transform 300ms var(--pf26-ease), filter 220ms ease; }
+@media (hover:hover) and (pointer:fine) { .pf-art-card:hover .pf-art-preview img { transform: scale(1.035); } }
+.pf-art-tools button { transition: transform 150ms var(--pf26-ease), background-color 150ms ease, border-color 150ms ease; }
+.pf-home-hero-mark { transition: transform 300ms var(--pf26-spring), filter 250ms ease; }
+@media (hover:hover) and (pointer:fine) { .pf-home-hero:hover .pf-home-hero-mark { transform: rotate(-5deg) scale(1.045); filter: drop-shadow(0 10px 25px #e0bd6b55); } }
+.pf-home-header { transition: background-color 180ms ease, border-color 180ms ease; }
+
+/* 91–100 · dialogs, notices, loading states and status */
+.modalback:not(.hidden), .pf-settings-backdrop:not(.hidden), .pf-command-backdrop:not(.hidden) {
+  animation: pf26-backdrop-in 180ms ease-out both;
+}
+@keyframes pf26-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+.modalback:not(.hidden) .modal, .pf-settings-backdrop:not(.hidden) .pf-settings-modal {
+  transform-origin: center bottom;
+}
+.toast { transition: opacity 190ms ease, transform 230ms var(--pf26-spring), box-shadow 190ms ease; transform: translate(-50%, 9px) scale(.98); }
+.toast.show { transform: translate(-50%, 0) scale(1); box-shadow: 0 12px 30px #0005; }
+.busyback:not(.hidden) .busycard { animation: pf26-busy-in 220ms var(--pf26-ease) both; }
+@keyframes pf26-busy-in { from { opacity: 0; transform: translateY(8px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.progressFill { position: relative; overflow: hidden; }
+.progressFill:after { content: ""; position: absolute; inset: 0 auto 0 -35%; width: 30%; background: linear-gradient(90deg, transparent, #ffffff45, transparent); animation: pf26-progress-sheen 1.8s ease-in-out infinite; }
+@keyframes pf26-progress-sheen { 0% { transform: translateX(0); } 100% { transform: translateX(450%); } }
+.status-pill { transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease; }
+.guide-step { transition: transform 170ms var(--pf26-ease), border-color 170ms ease, background-color 170ms ease; }
+@media (hover:hover) and (pointer:fine) { .guide-step:hover { transform: translateX(3px); } }
+
+/* Keep the actual painting surface entirely free of decorative motion. */
+.stage, .stage canvas, #overlay, .thumb canvas { animation: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .pf-pointer-pressed { transform: none !important; filter: none !important; }
+  .progressFill:after { display: none !important; }
+}
+body.pf-reduced-motion *, body.pf-reduced-motion *::before, body.pf-reduced-motion *::after {
+  scroll-behavior: auto !important; animation: none !important; transition: none !important;
+}
+body.pf-reduced-motion .pf-pointer-pressed { transform: none !important; filter: none !important; }
