@@ -1,0 +1,24 @@
+/* PIXEL FORGE STUDIO v46 — robust dialog layering and mobile visual viewport. */
+.pf-v45-hard-close [aria-modal="true"] { overscroll-behavior: contain; }
+.pf-v45-starting #pfStartupProgress { opacity: 1; visibility: visible; }
+.pf-v45-starting #pfStartupProgress .pf-startup-progress__fill { transition: width .22s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  #pfStartupProgress, #pfStartupProgress * { animation: none !important; transition-duration: .01ms !important; }
+}
+
+/* v46.1: resolve the legacy .workspace.panel-open !important layer override.
+   Keep the mobile settings drawer visually above its scrim and every modal. */
+@media (max-width: 760px),
+       (max-width: 900px) and (any-pointer: coarse),
+       (max-height: 520px) and (any-pointer: coarse) {
+  body.mobile-panel-open .workspace.panel-open #rightbar.pf-mobile-v39,
+  body.mobile-panel-open .workspace #rightbar.pf-mobile-v39,
+  body.mobile-panel-open #rightbar.pf-mobile-v39 {
+    position: fixed !important;
+    z-index: 12020 !important;
+  }
+  body.mobile-panel-open #mobilePanelScrim {
+    position: fixed !important;
+    z-index: 12010 !important;
+  }
+}
