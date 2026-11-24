@@ -1,0 +1,112 @@
+/* PIXEL FORGE STUDIO v38 — dedicated, responsive mode workbenches. */
+.pf-mode-workbench{
+ --wb-accent:#77d8b5; --wb-edge:rgba(142,170,198,.20); --wb-surface:rgba(22,34,49,.94);
+ display:block;position:relative;z-index:3;width:100%;margin:0 0 9px;padding:10px 12px 11px;
+ border:1px solid var(--wb-edge);border-left:3px solid var(--wb-accent);border-radius:12px;
+ background:linear-gradient(115deg,rgba(26,39,55,.97),rgba(20,30,44,.94));
+ color:#eaf2fb;box-shadow:0 7px 22px rgba(0,0,0,.12);contain:layout style;
+ animation:pfWbEnter .24s cubic-bezier(.2,.7,.2,1) both;
+}
+.pf-mode-workbench[data-accent="mint"]{--wb-accent:#87d9b8}.pf-mode-workbench[data-accent="blue"]{--wb-accent:#82c4ff}
+.pf-mode-workbench[data-accent="amber"]{--wb-accent:#e8bd82}.pf-mode-workbench[data-accent="violet"]{--wb-accent:#b6a9ff}
+.pf-mode-workbench[data-accent="pink"]{--wb-accent:#f0a9ce}.pf-mode-workbench[data-accent="lime"]{--wb-accent:#b5dc85}
+.pf-mode-workbench[data-accent="orange"]{--wb-accent:#ffc17d}.pf-mode-workbench[data-accent="cyan"]{--wb-accent:#82d8db}
+.pf-wb-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-width:0;margin-bottom:8px}
+.pf-wb-heading{display:grid;gap:2px;min-width:0;flex:1}
+.pf-wb-heading>span{color:var(--wb-accent);font-size:8px;font-weight:900;letter-spacing:.16em;line-height:1.3}
+.pf-wb-heading>strong{display:flex;align-items:baseline;gap:7px;color:#f2f7fd;font-size:13px;font-weight:850;letter-spacing:.015em;line-height:1.4}
+.pf-wb-heading>strong small{color:#7890a8;font-size:8px;font-weight:800;letter-spacing:.12em}
+.pf-wb-heading>p{margin:1px 0 0;color:#a7b8cb;font-size:9px;line-height:1.45}
+.pf-wb-head-actions{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+.pf-wb-live{color:#83c6a9;font-size:8px;font-weight:900;letter-spacing:.12em;white-space:nowrap}
+.pf-wb-content{display:grid;gap:7px;min-width:0}
+.pf-wb-actions,.pf-wb-subrow,.pf-pixel-toolset,.pf-pixel-settings,.pf-palette-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.pf-wb-subrow{padding-top:6px;border-top:1px solid rgba(145,172,200,.12)}
+.pf-wb-subrow>span{margin-right:2px;color:#8198b1;font-size:8px;font-weight:850;letter-spacing:.10em}
+.pf-wb-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:29px;padding:5px 9px;border:1px solid rgba(143,169,198,.22);border-radius:8px;background:rgba(47,64,84,.62);color:#dce9f5;font:inherit;font-size:9px;font-weight:750;line-height:1.25;white-space:nowrap;cursor:pointer;transition:transform .16s,border-color .16s,background .16s,box-shadow .16s}
+.pf-wb-btn:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--wb-accent),transparent 36%);background:rgba(58,80,105,.78);box-shadow:0 5px 13px rgba(0,0,0,.14)}
+.pf-wb-btn:active{transform:translateY(0) scale(.97)}.pf-wb-btn:focus-visible{outline:2px solid var(--wb-accent);outline-offset:2px}
+.pf-wb-btn.pf-wb-quiet{min-height:27px;background:transparent;color:#a7bbce}
+.pf-wb-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.pf-wb-steps span{padding:6px 8px;border:1px solid rgba(130,210,178,.13);border-radius:7px;background:rgba(88,164,129,.075);color:#bde8d4;font-size:8px;font-weight:800;text-align:center}
+.pf-wb-sliders{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:8px}
+.pf-wb-sliders label,.pf-pixel-settings label,.pf-palette-row label{display:inline-flex;align-items:center;gap:6px;color:#9eb1c5;font-size:9px;font-weight:700;white-space:nowrap}
+.pf-wb-sliders input[type=range]{width:min(150px,100%);accent-color:var(--wb-accent)}
+.pf-wb-content select,.pf-wb-content input[type=number]{min-height:26px;max-width:145px;padding:4px 7px;border:1px solid rgba(140,168,196,.26);border-radius:7px;background:#182637;color:#e6f0fa;font:inherit;font-size:9px}
+.pf-wb-content input[type=checkbox]{accent-color:var(--wb-accent)}
+.pf-wb-note{color:#8fa6bb;font-size:8px;line-height:1.5}
+/* Pixel art gets a true pixel-art control rail rather than a normal brush toolbar. */
+.pf-mode-workbench[data-mode="pixel"]{padding:10px 11px 11px;border-left-width:4px;background:linear-gradient(120deg,rgba(28,42,37,.98),rgba(20,31,38,.96))}
+.pf-pixel-toolbar{display:grid;gap:7px;min-width:0}
+.pf-pixel-toolset{padding-bottom:6px;border-bottom:1px solid rgba(180,220,133,.16)}
+.pf-pixel-toolset .pf-wb-btn{min-width:44px;min-height:31px}
+.pf-pixel-settings{padding:1px 0 3px}
+.pf-pixel-settings input[type=number]{width:55px;max-width:55px}
+.pf-pixel-settings select{min-width:70px}
+.pf-pixel-check{display:inline-flex;align-items:center;gap:5px!important}
+.pf-palette-row{align-items:center;gap:7px;padding-top:6px;border-top:1px solid rgba(180,220,133,.14)}
+.pf-palette-swatches{display:flex;align-items:center;gap:4px;flex-wrap:wrap;max-width:100%;min-width:0}
+.pf-pixel-swatch{width:19px;height:19px;flex:0 0 19px;padding:0;border:1px solid rgba(240,248,255,.42);border-radius:5px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);transition:transform .13s,border-color .13s,box-shadow .13s}
+.pf-pixel-swatch:hover{transform:translateY(-2px) scale(1.08);border-color:#fff}
+.pf-pixel-swatch.is-picked{outline:2px solid #fff;outline-offset:2px;box-shadow:0 0 0 4px rgba(180,220,133,.2)}
+.pf-pixel-add-color input[type=color]{width:27px;height:25px;padding:1px;border:1px solid rgba(150,180,200,.3);border-radius:5px;background:#1a2a31}
+.pf-pixel-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#90b69a;font-size:8px;line-height:1.4}
+.pf-mode-workbench[data-mode="pixel"] .pf-wb-heading>span{color:#b7e18d}
+.pf-mode-workbench[data-mode="pixel"] .pf-wb-btn{background:rgba(49,72,59,.72);border-color:rgba(175,219,138,.22)}
+.pf-mode-workbench[data-mode="pixel"] .pf-wb-btn:hover{border-color:#b7e18d;background:rgba(66,96,73,.84)}
+.pf-mode-workbench[data-mode="pixel"] .pf-wb-content select,.pf-mode-workbench[data-mode="pixel"] .pf-wb-content input[type=number]{border-color:rgba(174,218,137,.28);background:#1a2a28}
+/* A mode accent is carried into the editor frame without recolouring every control. */
+body.pf-engine-beginner{--pf-mode-accent:#87d9b8}body.pf-engine-illustration{--pf-mode-accent:#82c4ff}
+body.pf-engine-painting{--pf-mode-accent:#e8bd82}body.pf-engine-photo{--pf-mode-accent:#b6a9ff}
+body.pf-engine-design{--pf-mode-accent:#f0a9ce}body.pf-engine-pixel{--pf-mode-accent:#b5dc85}
+body.pf-engine-animation{--pf-mode-accent:#ffc17d}body.pf-engine-pro{--pf-mode-accent:#82d8db}
+body.pf-engine-pixel #overlay{image-rendering:pixelated}
+body.pf-engine-pixel #rightbar .panel[data-pf-mode-panel="brush"],body.pf-engine-pixel #rightbar .panel[data-pf-mode-panel="creative"]{border-color:rgba(181,220,133,.26)}
+body.pf-engine-painting #rightbar .panel[data-pf-mode-panel="paperPhysics"],body.pf-engine-painting #rightbar .panel[data-pf-mode-panel="material"]{border-color:rgba(232,189,130,.24)}
+body.pf-engine-animation #rightbar .panel[data-pf-mode-panel="animation"]{border-color:rgba(255,193,125,.3)}
+body.pf-engine-photo #rightbar .panel[data-pf-mode-panel="reference"],body.pf-engine-photo #rightbar .panel[data-pf-mode-panel="transform"]{border-color:rgba(182,169,255,.28)}
+@keyframes pfWbEnter{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:980px){.pf-mode-workbench{padding:9px}.pf-wb-btn{min-height:33px}.pf-wb-sliders{grid-template-columns:repeat(2,minmax(130px,1fr))}}
+@media(max-width:680px){.pf-wb-head{gap:7px}.pf-wb-heading>p{max-width:58ch}.pf-wb-live{display:none}.pf-wb-btn{min-height:37px;padding:7px 9px;font-size:10px}.pf-wb-actions,.pf-pixel-toolset{gap:5px}.pf-wb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-wb-sliders{grid-template-columns:1fr}.pf-wb-sliders label{justify-content:space-between}.pf-wb-sliders input[type=range]{width:55%}.pf-pixel-settings{align-items:flex-start}.pf-pixel-meta{font-size:8px}.pf-pixel-swatch{width:22px;height:22px;flex-basis:22px}}
+@media(max-width:390px){.pf-mode-workbench{padding:8px}.pf-wb-heading>strong{font-size:12px}.pf-wb-heading>p{font-size:8px}.pf-wb-head-actions .pf-wb-btn{min-height:32px;padding:5px 7px;font-size:8px}.pf-wb-actions .pf-wb-btn{flex:1 1 auto}.pf-pixel-toolset .pf-wb-btn{flex:1 1 29%;min-width:0}.pf-pixel-settings{gap:5px}.pf-palette-row{align-items:flex-start}.pf-palette-swatches{flex:1 1 100%}}
+.pf-theme-light .pf-mode-workbench{background:linear-gradient(115deg,#f9fbfe,#edf3f8);color:#253a50;border-color:#cedae6;box-shadow:0 5px 16px rgba(28,54,79,.08)}
+.pf-theme-light .pf-wb-heading>strong{color:#1e344a}.pf-theme-light .pf-wb-heading>p{color:#5d7288}.pf-theme-light .pf-wb-subrow{border-color:#dce5ed}.pf-theme-light .pf-wb-subrow>span,.pf-theme-light .pf-wb-note{color:#627b93}
+.pf-theme-light .pf-wb-btn{background:#fff;color:#294158;border-color:#c8d6e3}.pf-theme-light .pf-wb-btn:hover{background:#f2f7fb}.pf-theme-light .pf-wb-content select,.pf-theme-light .pf-wb-content input[type=number]{background:#fff;color:#263d53;border-color:#c8d6e3}
+.pf-theme-light .pf-wb-steps span{background:#edf7f1;color:#38654e;border-color:#d5eadc}.pf-theme-light .pf-pixel-meta{color:#527b59}.pf-theme-light .pf-wb-live{color:#438463}
+@media(prefers-reduced-motion:reduce){.pf-mode-workbench,.pf-wb-btn,.pf-pixel-swatch{animation:none!important;transition:none!important}.pf-wb-btn:hover,.pf-pixel-swatch:hover{transform:none!important}}
+
+/* v42 compact mode headers: Pro is a clean full-studio command rail. */
+.pf-mode-workbench{padding:6px 9px 8px;margin-bottom:6px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.09)}
+.pf-wb-head{align-items:center;gap:8px;margin:0 0 5px}
+.pf-wb-head-compact .pf-wb-heading{display:flex;align-items:center;gap:7px;flex-flow:row wrap}
+.pf-wb-head-compact .pf-wb-heading>span{font-size:7px;letter-spacing:.11em}
+.pf-wb-head-compact .pf-wb-heading>strong{font-size:11px;line-height:1.2}
+.pf-wb-description{display:inline-flex;align-items:center;min-width:0}
+.pf-wb-description summary{color:#8ea6bd;font-size:8px;font-weight:750;cursor:pointer;list-style:none;white-space:nowrap}
+.pf-wb-description summary::-webkit-details-marker{display:none}
+.pf-wb-description[open]{flex:1 1 100%}
+.pf-wb-description p{margin:3px 0 1px;color:#9fb2c6;font-size:8px;line-height:1.4}
+.pf-wb-head-actions{gap:4px}
+.pf-wb-head-actions .pf-wb-btn{min-height:24px;padding:3px 7px;font-size:8px}
+.pf-wb-head-pro{justify-content:flex-end;min-height:22px;margin-bottom:4px}
+.pf-wb-head-pro .pf-wb-head-actions{min-height:22px}
+.pf-wb-content{gap:5px}
+.pf-wb-actions,.pf-wb-subrow{gap:4px}
+.pf-wb-btn{min-height:25px;padding:4px 7px;border-radius:7px;font-size:8px}
+.pf-wb-subrow{padding-top:4px}
+.pf-wb-subrow>span{font-size:7px}
+.pf-mode-workbench[data-mode="pro"]{padding:5px 8px 7px;border-left-width:3px}
+.pf-mode-workbench[data-mode="pro"] .pf-wb-content{gap:4px}
+.pf-mode-workbench[data-mode="pro"] .pf-wb-actions .pf-wb-btn{min-height:27px}
+.pf-theme-light .pf-wb-description summary{color:#617991}
+@media(max-width:680px){
+ .pf-mode-workbench{padding:6px 7px 7px}
+ .pf-wb-head-compact{align-items:flex-start}
+ .pf-wb-head-compact .pf-wb-heading{gap:5px}
+ .pf-wb-head-compact .pf-wb-heading>strong{font-size:10px}
+ .pf-wb-description p{font-size:9px}
+ .pf-wb-head-actions .pf-wb-btn{min-height:31px;font-size:9px}
+ .pf-wb-btn{min-height:34px;padding:6px 8px;font-size:9px}
+ .pf-mode-workbench[data-mode="pro"] .pf-wb-actions .pf-wb-btn{min-height:35px;flex:1 1 auto}
+ .pf-wb-head-pro{min-height:28px}
+}
