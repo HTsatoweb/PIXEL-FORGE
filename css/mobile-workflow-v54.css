@@ -1,0 +1,110 @@
+/* PIXEL FORGE STUDIO v54 — high-precision touch targets and clear desktop work areas. */
+button,[role="button"],input,select,textarea{ -webkit-tap-highlight-color:transparent }
+button:focus-visible,[role="button"]:focus-visible{outline:2px solid #9bcaf1;outline-offset:2px}
+:root{--pf-v54-tap-size:48px;--pf-v54-mobile-gutter:max(6px,env(safe-area-inset-left));}
+#pfMobileStudioBottom [data-pf-history-action]{position:relative}
+#pfMobileStudioBottom [data-pf-history-action]::after{content:"";position:absolute;inset:3px;border-radius:8px;pointer-events:none}
+#pfMobileStudioBottom button:disabled{opacity:.34;filter:saturate(.55);cursor:not-allowed;box-shadow:none}
+#pfMobileStudioBottom button:active:not(:disabled){transform:translateY(1px) scale(.97)}
+#rightbar .panel button,#rightbar .panel .smallbtn{touch-action:manipulation}
+#rightbar .panel input[type="range"]{touch-action:pan-y}
+.pf-v54-layout-action{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;min-width:0;min-height:62px;border:1px solid #58728a;border-radius:10px;background:linear-gradient(145deg,#2a4056,#1e2f41);color:#e9f4ff;font-size:11px;font-weight:800;touch-action:manipulation}
+.pf-v54-layout-action span{font-size:20px;line-height:1}
+.pf-v54-mobile-manager-shortcut{touch-action:manipulation}
+@media (max-width:760px),(max-width:900px) and (any-pointer:coarse),(max-height:520px) and (any-pointer:coarse){
+  html,body{overscroll-behavior:none}
+  #app{height:var(--pf-live-vh,100dvh);max-height:var(--pf-live-vh,100dvh);padding-bottom:env(safe-area-inset-bottom,0px)}
+  /* The editor workspace is an isolated stacking context in older layouts.
+     Raise that context only while the drawer is open, so its header/close
+     control can cover the app topbar instead of being trapped underneath it. */
+  body.mobile-panel-open #app .workspace{position:relative!important;z-index:12005!important}
+  body.mobile-panel-open #mobilePanelScrim{z-index:12010!important}
+  body.mobile-panel-open #rightbar.pf-mobile-v39{z-index:12020!important}
+  .pf-mobile-studio-bottom{
+    display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:3px!important;
+    min-height:62px!important;padding:5px max(5px,env(safe-area-inset-right)) max(5px,env(safe-area-inset-bottom)) max(5px,env(safe-area-inset-left))!important;
+    box-sizing:border-box!important;isolation:isolate;position:relative;z-index:100!important;
+  }
+  .pf-mobile-studio-bottom>button{
+    display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    min-width:0!important;width:100%!important;min-height:48px!important;height:48px!important;max-height:52px!important;
+    gap:2px!important;padding:3px 1px!important;border-radius:10px!important;font-size:clamp(8px,2.6vw,10px)!important;
+    line-height:1.1!important;white-space:nowrap!important;touch-action:manipulation!important;pointer-events:auto!important;
+    user-select:none!important;-webkit-user-select:none!important;cursor:pointer!important;
+  }
+  .pf-mobile-studio-bottom>button>span{font-size:clamp(16px,4.7vw,20px)!important;line-height:1!important;pointer-events:none}
+  .pf-mobile-studio-bottom>button>small{display:block!important;font-size:clamp(7.5px,2.2vw,9px)!important;line-height:1.05!important;letter-spacing:-.02em;pointer-events:none}
+  .pf-mobile-studio-bottom>button[aria-pressed="true"]{border-color:#b2d8fa!important;background:#3b5874!important;box-shadow:inset 0 0 0 1px #ffffff18,0 2px 7px #0003!important}
+  .pf-mobile-studio-bottom>button:focus-visible{outline:2px solid #b7dcff!important;outline-offset:-2px!important}
+  .pf-mobile-studio-bottom>button small{max-width:100%;overflow:hidden;text-overflow:clip}
+  .pf-mobile-studio-bottom>button[data-pf-history-action]{border-color:#57728b!important;background:linear-gradient(150deg,#304a63,#23384c)!important}
+  .pf-mobile-studio-bottom>button[data-pf-history-action="undo"]{border-color:#6a87a3!important}
+  .pf-mobile-studio-bottom>button[data-pf-history-action="redo"]{border-color:#6a87a3!important}
+  #rightbar.pf-mobile-v39{touch-action:pan-y!important;overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important}
+  #rightbar.pf-mobile-v39 .mobile-panel-head{touch-action:pan-y!important}
+  #rightbar.pf-mobile-v39 .mobile-panel-head button{min-width:48px!important;min-height:48px!important;width:48px!important;height:48px!important}
+  #rightbar.pf-mobile-v39 .pf-mobile-panel-nav button{min-height:46px!important;touch-action:manipulation!important}
+  #rightbar.pf-mobile-v39 .pf-mobile-tools-grid button,#rightbar.pf-mobile-v39 .pf-mobile-actions-grid button{min-height:58px!important;touch-action:manipulation!important}
+  #rightbar.pf-mobile-v39 .panel button{min-height:44px;touch-action:manipulation}
+  #rightbar.pf-mobile-v39 input[type=range]{min-height:42px!important}
+  .pf-mobile-studio-top button,.pf-mobile-studio-top select{min-height:42px!important;touch-action:manipulation!important}
+  .pf-mobile-studio-top input[type=range]{min-height:38px!important;touch-action:pan-y!important}
+  /* The old floating organiser overlapped the last dock button. It now lives
+     inside the mobile Home header and Editor > その他 action grid. */
+  body #pfUiFab:not(.pf-ui-fab-inline){display:none!important;pointer-events:none!important}
+  .pf-v54-layout-action{display:flex!important}
+  .pf-home-mobile-head-actions [data-pf-v54-layout]{display:grid!important;place-items:center;flex:0 0 36px;min-width:36px!important;width:36px!important;height:36px!important;min-height:36px!important;padding:0!important;font-size:17px!important}
+  #pfMobileActions{padding-bottom:max(14px,env(safe-area-inset-bottom))!important}
+  #mobilePanelScrim{touch-action:manipulation!important}
+  .stage{overscroll-behavior:none}
+  .stage canvas{touch-action:none!important;-webkit-user-select:none!important;user-select:none!important}
+  .mobile-dock{display:none!important}
+  .pf-ui-dialog{padding-bottom:max(14px,env(safe-area-inset-bottom))!important}
+}
+@media (max-width:380px){
+  .pf-mobile-studio-bottom{gap:2px!important;padding-inline:3px!important}
+  .pf-mobile-studio-bottom>button{min-height:46px!important;height:46px!important;border-radius:8px!important}
+  .pf-mobile-studio-bottom>button>small{font-size:8px!important}
+}
+@media (max-height:560px) and (any-pointer:coarse){
+  .pf-mobile-studio-top{padding-block:3px!important}
+  .pf-mobile-studio-bottom{min-height:54px!important;padding-block:3px!important}
+  .pf-mobile-studio-bottom>button{min-height:44px!important;height:44px!important}
+  .stage{min-height:54px!important}
+}
+@media (min-width:761px){
+  #app .workspace{min-width:0;min-height:0}
+  #app .topbar{min-width:0;gap:clamp(5px,.75vw,12px)}
+  #app .topbar .menu{display:flex;align-items:center;gap:clamp(2px,.35vw,6px);min-width:0}
+  #app .topbar .menu button{min-height:38px;padding-inline:clamp(5px,.7vw,11px);white-space:nowrap}
+  #app .leftbar{min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  #app .leftbar .tool{flex:0 0 auto;min-height:40px;touch-action:manipulation}
+  #app .center{min-width:0;min-height:0}
+  #app .contextbar{min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin}
+  #app .stage{min-width:0;min-height:0;overscroll-behavior:contain}
+  #app .rightbar{min-width:250px;max-width:min(430px,34vw);min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  #app .rightbar>.panel{min-width:0;max-width:100%;box-sizing:border-box}
+  #app .rightbar .field,#app .rightbar .fieldrow{min-width:0;max-width:100%}
+  #app .rightbar input:not([type=range]),#app .rightbar select,#app .rightbar textarea{max-width:100%;box-sizing:border-box}
+  #app .rightbar input[type=range]{min-height:26px;touch-action:pan-y}
+  #app button:disabled{cursor:not-allowed}
+}
+@media (min-width:761px) and (max-width:1100px){
+  #app .topbar{gap:4px;padding-inline:6px}
+  #app .topbar .menu button{padding-inline:5px;font-size:11px}
+  #app .topbar .topbtn{min-width:34px;min-height:36px;padding-inline:7px}
+  #app .brand{max-width:170px;min-width:110px}
+  #app .docname{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #app .rightbar{width:clamp(250px,28vw,320px);max-width:320px}
+}
+@media (min-width:761px) and (max-height:720px){
+  #app .topbar{min-height:44px;height:44px}
+  #app .workspace{min-height:0}
+  #app .leftbar{padding-block:4px}
+  #app .leftbar .tool{min-height:36px}
+  #app .contextbar{min-height:38px}
+  #app .bottombar{min-height:22px;height:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .pf-mobile-studio-bottom button,.pf-mobile-studio-top button,#rightbar.pf-mobile-v39{transition:none!important;animation:none!important}
+}

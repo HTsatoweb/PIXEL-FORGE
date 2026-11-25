@@ -1,0 +1,195 @@
+/* PIXEL FORGE v50 — stable drawer, compact PC and collision-resistant layouts. */
+:root{
+  --pf-v50-gap:clamp(5px,.7vw,10px);
+  --pf-v50-panel-width:clamp(258px,27vw,360px);
+  --pf-v50-header:clamp(42px,4.2vh,54px);
+}
+*,*::before,*::after{box-sizing:border-box}
+#app,.workspace,.center,.stage,.rightbar,.leftbar{min-width:0;min-height:0}
+.topbar,.contextbar{min-width:0;max-width:100%;overscroll-behavior-x:contain}
+.topbar{gap:var(--pf-v50-gap)}
+.topbar .docname{min-width:0;max-width:min(22vw,280px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.contextbar{scrollbar-width:thin}
+.contextbar .context-group{flex-shrink:0}
+.rightbar{flex:0 0 var(--pf-v50-panel-width);width:var(--pf-v50-panel-width);max-width:42vw;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.panel,.panelhead,.field,.fieldrow,.context-group{min-width:0;max-width:100%}
+.panel input:not([type=range]),.panel select,.panel textarea{max-width:100%;min-width:0}
+.panel-toolbar{position:relative;z-index:25;min-width:0}
+.panel-search-wrap{min-width:0}
+.panel-toolbar-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));min-width:0}
+.panel-toolbar-actions button{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Desktop work area down to small laptop dimensions. */
+@media (min-width:761px) and (max-width:1280px){
+  .topbar{min-height:42px;height:42px;padding-inline:7px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:thin}
+  .topbar .brand{flex:0 0 auto;max-width:180px}
+  .topbar .brand small{display:none}
+  .topbar .docname{max-width:clamp(100px,14vw,190px);font-size:10px}
+  .topbar .topbtn{flex:0 0 auto;min-width:34px;min-height:34px;padding:5px 7px}
+  .topbar .toplabel{font-size:10px}
+  .contextbar{height:40px;min-height:40px;padding-inline:7px;gap:8px;overflow-x:auto;overflow-y:hidden}
+  .contextbar .context-group{gap:4px;font-size:10px}
+  .contextbar input[type=range]{width:clamp(48px,6vw,82px)}
+  .leftbar{width:clamp(42px,4.1vw,52px);flex-basis:clamp(42px,4.1vw,52px);padding-inline:3px}
+  .leftbar .tool{width:clamp(34px,3.5vw,42px);height:clamp(34px,3.5vw,42px)}
+  .rightbar{flex-basis:clamp(258px,27vw,330px);width:clamp(258px,27vw,330px);max-width:34vw}
+  .rightbar .panel{padding:clamp(8px,.8vw,12px)}
+  .rightbar .panelhead{min-height:34px;font-size:11px}
+  .bottombar{min-height:20px;height:20px;font-size:9px}
+  .panel-resizer{flex-basis:5px;width:5px}
+}
+@media (min-width:761px) and (max-height:720px){
+  .topbar{height:40px;min-height:40px}
+  .contextbar{height:38px;min-height:38px}
+  .rightbar .panel{padding-block:7px}
+  .rightbar .panelhead{min-height:31px}
+  .leftbar{overflow-y:auto;scrollbar-width:thin}
+  .leftbar .tool{margin-block:2px}
+  .bottombar{height:19px;min-height:19px}
+}
+@media (min-width:761px) and (max-width:1024px){
+  .topbar .toplabel{display:none}
+  .topbar .topbtn{width:36px;justify-content:center}
+  .topbar .docname{max-width:110px}
+  .rightbar{flex-basis:258px;width:258px;max-width:30vw}
+  .panel-toolbar-actions{gap:3px}
+  .panel-toolbar-actions button{padding-inline:3px;font-size:9px}
+}
+
+/* Phone/tablet: one scrim, one state flag, one transform transition. */
+@media (max-width:760px),(max-width:900px) and (any-pointer:coarse),(max-height:520px) and (any-pointer:coarse){
+  html,body{width:100%;max-width:100%;overflow:hidden}
+  #app{width:100%;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden}
+  .workspace{min-width:0;min-height:0;overflow:hidden;isolation:isolate}
+  .center{flex:1 1 0;min-width:0;min-height:0;overflow:hidden}
+  .stage{min-width:0;min-height:0;overflow:hidden}
+  .topbar{flex:0 0 auto;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;white-space:nowrap}
+  .contextbar{min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+  .pf-mobile-studio-top,.pf-mobile-studio-bottom{max-width:100%;min-width:0}
+  #rightbar.pf-mobile-v39{
+    display:flex!important;position:fixed!important;z-index:12020!important;
+    top:var(--pf-v44-visual-top,env(safe-area-inset-top,0px));right:0;bottom:auto;left:auto;
+    width:min(470px,var(--pf-v44-visual-width,100vw));max-width:min(100vw,var(--pf-v44-visual-width,100vw));
+    height:var(--pf-v44-visual-height,100dvh);max-height:var(--pf-v44-visual-height,100dvh);
+    padding:0 0 max(8px,env(safe-area-inset-bottom,0px));
+    border:0;border-left:1px solid #536981;border-radius:16px 0 0 0;
+    overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    transform:translate3d(calc(100% + 14px),0,0);opacity:1;visibility:hidden;pointer-events:none;
+    transition:transform 220ms cubic-bezier(.18,.72,.22,1),visibility 0s linear 220ms;
+    animation:none!important;will-change:transform;backface-visibility:hidden;
+  }
+  body.mobile-panel-open #rightbar.pf-mobile-v39{
+    transform:translate3d(0,0,0);visibility:visible;pointer-events:auto;
+    transition:transform 220ms cubic-bezier(.18,.72,.22,1),visibility 0s;
+    animation:none!important;
+  }
+  .workspace.panel-open #rightbar,.workspace.panel-open .rightbar{animation:none!important}
+  #mobilePanelScrim.mobile-panel-scrim{
+    display:block!important;position:fixed!important;z-index:12010!important;
+    top:var(--pf-v44-visual-top,0px);left:var(--pf-v44-visual-left,0px);right:auto;bottom:auto;
+    width:var(--pf-v44-visual-width,100vw);height:var(--pf-v44-visual-height,100dvh);
+    margin:0;padding:0;background:rgba(4,8,13,.62);backdrop-filter:blur(2px);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity 180ms ease,visibility 0s linear 180ms;
+  }
+  body.mobile-panel-open #mobilePanelScrim.mobile-panel-scrim{
+    opacity:1;visibility:visible;pointer-events:auto;transition:opacity 180ms ease,visibility 0s;
+  }
+  .drawer-scrim{display:none!important}
+  body.mobile-panel-open .mobile-dock{opacity:.18;filter:none;pointer-events:none}
+  .rightbar .mobile-panel-head{flex:0 0 48px;min-height:48px}
+  .rightbar .mobile-panel-head button,#mobilePanelClose{width:44px;height:44px;min-width:44px;min-height:44px;display:grid;place-items:center;touch-action:manipulation}
+  .panel-toolbar{position:relative;top:auto;z-index:24;flex:0 0 auto}
+  .panel-search-wrap{display:grid;grid-template-columns:20px minmax(0,1fr) 34px;align-items:center}
+  .panel-toolbar-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+  .panel-toolbar-actions button{min-height:38px;padding:4px 3px;font-size:10px}
+}
+@media (max-width:420px){
+  #rightbar.pf-mobile-v39{width:100vw;max-width:100vw;border-radius:0}
+  .pf-mobile-studio-bottom{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
+  .pf-mobile-studio-bottom button{font-size:9px}
+  .panel-toolbar-actions button{font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){
+  #rightbar.pf-mobile-v39,#mobilePanelScrim.mobile-panel-scrim{transition:none!important;animation:none!important}
+}
+
+/* User-selectable density; the automatic responsive rules remain the default. */
+.pf-density-toggle{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:64px;padding-inline:8px}
+.pf-density-toggle .pf-density-icon{font-size:15px;line-height:1}
+.pf-density-toggle[aria-pressed=true]{border-color:#88bce9;background:linear-gradient(145deg,#344d68,#25384c)}
+body.pf-force-compact:not(.mobile-layout) .topbar{height:40px;min-height:40px}
+body.pf-force-compact:not(.mobile-layout) .contextbar{height:36px;min-height:36px}
+body.pf-force-compact:not(.mobile-layout) .rightbar{flex-basis:270px;width:270px}
+body.pf-force-compact:not(.mobile-layout) .leftbar{width:44px;flex-basis:44px}
+body.pf-force-comfortable:not(.mobile-layout) .topbar{height:52px;min-height:52px}
+body.pf-force-comfortable:not(.mobile-layout) .contextbar{height:48px;min-height:48px}
+@media(max-width:760px),(max-width:900px) and (any-pointer:coarse),(max-height:520px) and (any-pointer:coarse){.pf-density-toggle{display:none!important}}
+@media(min-width:761px) and (max-width:1280px){.pf-density-toggle .toplabel{display:inline}}
+
+.pf-focus-toggle{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:58px;padding-inline:8px}
+.pf-focus-toggle[aria-pressed=true]{border-color:#d3b77d;background:linear-gradient(145deg,#5b4b31,#3a3327);color:#fff3d4}
+body.pf-canvas-focus .workspace .leftbar,
+body.pf-canvas-focus .workspace #rightbar,
+body.pf-canvas-focus .workspace .panel-resizer,
+body.pf-canvas-focus .center>.contextbar{display:none!important}
+body.pf-canvas-focus .workspace .center{flex:1 1 100%;min-width:0}
+body.pf-canvas-focus .workspace .stage{min-height:0;flex:1 1 100%}
+body.pf-canvas-focus .workspace .bottombar{opacity:.62}
+@media(max-width:760px),(max-width:900px) and (any-pointer:coarse),(max-height:520px) and (any-pointer:coarse){.pf-focus-toggle .toplabel{display:none}.pf-focus-toggle{min-width:36px;width:36px;padding-inline:4px}}
+
+/* Fix the actual mobile hit-test issue: the editor topbar used to paint above
+   the drawer close control because .workspace had no stacking level. Elevate
+   the workspace only while the drawer is open; the existing scrim still sits
+   between the workspace content and #rightbar. */
+@media (max-width:760px), (max-width:900px) and (any-pointer:coarse), (max-height:520px) and (any-pointer:coarse){
+  body.mobile-panel-open .workspace.panel-open{
+    position:relative!important;
+    z-index:11!important;
+    isolation:isolate;
+  }
+  body.mobile-panel-open #mobilePanelScrim{z-index:12010!important;}
+  body.mobile-panel-open #rightbar.pf-mobile-v39{z-index:12020!important;}
+  body.mobile-panel-open #mobilePanelClose{
+    position:relative!important;
+    z-index:12031!important;
+    min-width:44px;min-height:44px;
+    touch-action:manipulation;
+  }
+}
+
+/* Small-PC vertical economy: retain the release link but remove repeated prose. */
+@media (min-width:761px) and (max-width:1280px){
+  .update-notice{min-height:42px;padding:5px 10px;gap:8px}
+  .update-notice-mark{width:26px;height:26px;flex:0 0 26px}
+  .update-notice-content{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;row-gap:1px}
+  .update-notice-title{font-size:10px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .update-notice-content p{display:none}
+  .update-notice-content a{font-size:9px;white-space:nowrap}
+  .update-notice-close{width:28px;height:28px;flex:0 0 28px}
+}
+@media (min-width:761px) and (max-height:640px){
+  .update-notice{min-height:34px;padding-block:3px}
+  .update-notice-mark{display:none}
+  .update-notice-content a{display:none}
+  .update-notice-title{font-size:9px}
+  .pf-beginner-coach,.pf-mode-coach,.beginner-coach{max-height:44px;min-height:0;padding-block:4px;overflow:hidden}
+}
+@media (min-width:761px) and (max-width:900px){
+  .rightbar{flex:0 0 260px;width:260px;max-width:34vw;min-width:248px}
+  .rightbar .panelhead{font-size:10px;letter-spacing:.01em}
+  .rightbar .panelhead small{font-size:9px}
+  .panel-toolbar{padding:8px}
+  .panel-toolbar-actions button{min-height:32px}
+}
+
+/* Keep UI organiser reachable without covering the inspector or sliders. */
+#pfUiFab.pf-ui-fab-inline{
+  position:static!important;display:inline-flex;flex:0 0 34px;width:34px;height:34px;min-height:34px;
+  align-items:center;justify-content:center;margin:0 3px;padding:0;border-radius:8px;
+  font-size:14px;line-height:1;box-shadow:none;transform:none;transition:background .15s,border-color .15s;
+}
+#pfUiFab.pf-ui-fab-inline:hover{transform:none;border-color:#91c2ef;box-shadow:none}
+@media(max-width:760px),(max-width:900px) and (any-pointer:coarse),(max-height:520px) and (any-pointer:coarse){
+  body.mobile-panel-open #pfUiFab{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px)}
+}

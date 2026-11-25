@@ -1,0 +1,439 @@
+{
+  "application": "PIXEL FORGE STUDIO",
+  "version": "54.0.0",
+  "base_version": "53.0.0",
+  "generated_date": "2026-11-25",
+  "file_count_including_manifest": 86,
+  "entry_count_excluding_manifest": 85,
+  "entries": [
+    {
+      "path": "assets/images/apple-touch-icon.png",
+      "size": 6382,
+      "sha256": "0c1deabbbfaf045fff39a2d65f3aeb8f8aa595c457f5ec42be1bc3e6e3207ee5"
+    },
+    {
+      "path": "assets/images/icon-192.png",
+      "size": 6708,
+      "sha256": "6f06b9453c51d02288d324b1d99d2e691be5c28843fca90e2a995340cbe1b18e"
+    },
+    {
+      "path": "assets/images/icon-512.png",
+      "size": 20328,
+      "sha256": "a9b5866b73685172f837dc2040fd7527cf06ba5b701f90f3929b1e6fc8c8dea8"
+    },
+    {
+      "path": "assets/images/icon.svg",
+      "size": 444,
+      "sha256": "3f27ec275e99f33df44dfbe34c466f22a0cf903bf1dba6ea1080a929b5a38cfc"
+    },
+    {
+      "path": "css/adaptive-experience-v50.css",
+      "size": 11779,
+      "sha256": "cb7075b57441d9700ad258a6dd3e7c04d3bc00269ac16f0d62099560df1cdc59"
+    },
+    {
+      "path": "css/adaptive-experience-v51.css",
+      "size": 7838,
+      "sha256": "82bc077f9715e0e959e11cd57e9efb75fe7b1a50254b2445f8328a23f22a651a"
+    },
+    {
+      "path": "css/adaptive-experience-v52.css",
+      "size": 1859,
+      "sha256": "cbf535b1b9d02c5c4c151ecc3ace907e0077dac2742c8f774fc0e88c1346a77b"
+    },
+    {
+      "path": "css/adaptive-experience-v53.css",
+      "size": 13212,
+      "sha256": "94e8dab9c17d33c324f82b7823f00627a389502849de24fccf8b31cdf73eba53"
+    },
+    {
+      "path": "css/forge-enhancement-suite-v48.css",
+      "size": 18322,
+      "sha256": "427775cf103cddef040562f69618ee1eb98460451d50df589e0725f8cdc85d2c"
+    },
+    {
+      "path": "css/home-ui-v21.css",
+      "size": 17261,
+      "sha256": "8b04b66a736f55c4e13f43cc4bc8cc180236a5101ffa2e8dc454f51c10ab3922"
+    },
+    {
+      "path": "css/mobile-experience-v29.css",
+      "size": 10750,
+      "sha256": "9c4c0d5f170b507f6baea07ce3dc546ca63f954838f12c9db3b377b78f2878ee"
+    },
+    {
+      "path": "css/mobile-experience-v30.css",
+      "size": 8185,
+      "sha256": "77869ceb8b5bb34032577ec1382b13fae488be2dac5f76255fe39d66805b8f5f"
+    },
+    {
+      "path": "css/mobile-experience-v31.css",
+      "size": 12491,
+      "sha256": "a249ee68bd59412596d02fd4a3159ea709ce0a161d19f732e5b31b126c5a7e51"
+    },
+    {
+      "path": "css/mobile-experience-v32.css",
+      "size": 15320,
+      "sha256": "ff5d519aee44f71040bfc702ee6e120dfc510a5f12723e251595361117da7063"
+    },
+    {
+      "path": "css/mobile-fix-v19.css",
+      "size": 13143,
+      "sha256": "43022138e10d7d4a37fbb9de33e4a365849869263d35dd0d59c511aa6e115b44"
+    },
+    {
+      "path": "css/mobile-studio-v39.css",
+      "size": 10824,
+      "sha256": "58f860ea7797cb6fdee98555984fbdc085766d197408e550ec367ad3958f2719"
+    },
+    {
+      "path": "css/mobile-workflow-v54.css",
+      "size": 8849,
+      "sha256": "fa27fd84e573233d221b82603e20e150c5b64a9196964c16b3386af0c504b2e8"
+    },
+    {
+      "path": "css/mode-engines-v38.css",
+      "size": 11478,
+      "sha256": "a79e01dab827744b31226eb863c9b89b2df80a5194d43a55e909623ac275420d"
+    },
+    {
+      "path": "css/mode-workspaces-v37.css",
+      "size": 10616,
+      "sha256": "eb591f9f80dfc9bf9d3705973ce576c75f50902d2ba9e92c9401c8abdfd06338"
+    },
+    {
+      "path": "css/motion-engine-v26.css",
+      "size": 12600,
+      "sha256": "3d5ae97c452d0b19f94173a490b808f7a0d2b8587909eb00249f0b8007120a16"
+    },
+    {
+      "path": "css/precision-motion-v35.css",
+      "size": 7601,
+      "sha256": "2592755482d63b4708be34a3630f0bf8bf2056b8009c8d7a109b457d9be9047b"
+    },
+    {
+      "path": "css/studio-expansion-v36.css",
+      "size": 10320,
+      "sha256": "2a1e72cfe10f738d275d31e97c1e9116e6dd0a45e79117163cee49e74433d2c9"
+    },
+    {
+      "path": "css/style.css",
+      "size": 88863,
+      "sha256": "96f3731db96a515745ad98743dde1f19039cd9311e1859842c22d2f3c6195688"
+    },
+    {
+      "path": "css/ui-compact-v43.css",
+      "size": 7182,
+      "sha256": "01a047fc5d90c6f4b81bdaeb1f9a96dd476ac76b579c65f16d36b0c7c00d0cb4"
+    },
+    {
+      "path": "css/ui-layout-studio-v41.css",
+      "size": 14404,
+      "sha256": "82aa271c5639aea3e6d1af1d19976af9bad3f1e129f0696587c9bd1a52e9ffc2"
+    },
+    {
+      "path": "css/v34-fine-settings.css",
+      "size": 5208,
+      "sha256": "63bf26f0db9fe6ff99d83be0058942342977e378b330803042c6077f0b2a6092"
+    },
+    {
+      "path": "css/window-manager-v44.css",
+      "size": 3551,
+      "sha256": "88cab97b18802090e1f17250604227298776512fe387c8f221e4850d4b9cfa69"
+    },
+    {
+      "path": "css/window-manager-v45.css",
+      "size": 3144,
+      "sha256": "599e301913fc28929ce2a7487e3ea5647607a5f56c63e185797ddf04416f868a"
+    },
+    {
+      "path": "css/workbench-personalizer-v40.css",
+      "size": 4737,
+      "sha256": "62f0eaddffc7c6d8eb5bc6c8ddd481650b25f283df55136162f2f469a9013959"
+    },
+    {
+      "path": "docs/CHANGELOG_v51_JA.md",
+      "size": 2666,
+      "sha256": "a9356b94a540cb1164af4613edea8fe7a9d1db4aa80771fdacd76185b89a54dc"
+    },
+    {
+      "path": "docs/CHANGELOG_v52_JA.md",
+      "size": 1130,
+      "sha256": "c079afcfe3e80908b7986afcdd35fac2f21c99d09cb7526bad6cd9065ae3a136"
+    },
+    {
+      "path": "docs/CHANGELOG_v53_JA.md",
+      "size": 5129,
+      "sha256": "dfed7d43907d80adbf0d464db6f84d2477adb2177bb1f14d10d340d5dd45142c"
+    },
+    {
+      "path": "docs/CHANGELOG_v54_JA.md",
+      "size": 1914,
+      "sha256": "d0dd3ba65695eeffabbca931517f182e3d85b183578b7d6bc899f84714972058"
+    },
+    {
+      "path": "docs/FEATURES_JA.md",
+      "size": 10425,
+      "sha256": "92c93835c7a779b09013923236de04b19e2c0058bc8d9ed0ea1b79a84d57152b"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v39.json",
+      "size": 3274,
+      "sha256": "ac5839d0df9d31765f032bf9687e5fcd6bea997aa095b3fbbf8789a3437165c1"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v46.json",
+      "size": 19766,
+      "sha256": "5610e1a421cbce36e1cc470a82c8275630fbeedf954ccec8fb1dab314a1bfa91"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v47.json",
+      "size": 20924,
+      "sha256": "b5ab7af3e20efb7d1ca7525e6e5ce320740b9b14a49e38feba54da5efac6b974"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v48.json",
+      "size": 21923,
+      "sha256": "5e0ba08fc9bc790c39a4c2bfc53facbc17ebe47f197b0659837e8733eb54bdd2"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v49.json",
+      "size": 22594,
+      "sha256": "c8053d6cf3cb1df41aded6df1b34bb74200ceb8db43cd63943d6b06e171e279b"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v50.json",
+      "size": 22933,
+      "sha256": "77bf894e2e009c859740e56e33382d90b9413be101571225f21f6bc428a3cdd9"
+    },
+    {
+      "path": "docs/FILE_MANIFEST_v51.json",
+      "size": 23748,
+      "sha256": "fb34ec903b41413934e5ee7dadb3e9bb73eed06a8f6c5b983bd99a63d94c775b"
+    },
+    {
+      "path": "docs/MOBILE_REPAIR_CHECKLIST_100_JA.md",
+      "size": 10471,
+      "sha256": "ad41c3673b8aa1c54e4493260a10d3969a3dda759f323bf4dfc02bb482f0a151"
+    },
+    {
+      "path": "docs/README_JA.md",
+      "size": 11338,
+      "sha256": "45448c832ad6100ce74dea9eecc01f9e6f25413c4851285ccc1f168a823f59bc"
+    },
+    {
+      "path": "docs/START_HERE_JA.md",
+      "size": 2841,
+      "sha256": "0f5298d921ed66bd3c878cf79ade25bcde31ca3ef7c135c9659a27ed667395b9"
+    },
+    {
+      "path": "docs/TEST_RESULTS_v51_JA.md",
+      "size": 2364,
+      "sha256": "b4b6f6c8294458c56d3e47f6992c1f026acae0867547b794fbd9754e2c419dbd"
+    },
+    {
+      "path": "docs/TEST_RESULTS_v52_JA.md",
+      "size": 614,
+      "sha256": "151eefa5559e2b55c4549a2b959befd1ec509674bf44cee582b0470711f49504"
+    },
+    {
+      "path": "docs/TEST_RESULTS_v53_JA.md",
+      "size": 4073,
+      "sha256": "b9763b0eb11456bd48cd0cee060d2f3358504afd44a1fdc4d3be66be4785f33c"
+    },
+    {
+      "path": "docs/TEST_RESULTS_v54_JA.md",
+      "size": 3741,
+      "sha256": "deac511e91b5e66dd870b4fd08018310d81637c5b7475d446037ad8a43599165"
+    },
+    {
+      "path": "docs/UI_REVIEW_v53_JA.md",
+      "size": 1879,
+      "sha256": "f2fd03907a0a852d931054f7fb8b0209c252e474c01dab6ae29d14f2f8a2fec9"
+    },
+    {
+      "path": "docs/UI_REVIEW_v54_JA.md",
+      "size": 1197,
+      "sha256": "c03ffb7a4a1c8ac47d2ec021939645ed977e1597692ec773b94d30d7b40db726"
+    },
+    {
+      "path": "docs/WINDOW_RECOVERY_CHECKLIST_220_JA.md",
+      "size": 16174,
+      "sha256": "8379f373111ae7edf89a9eeadab52313ee7a6eb688272fbb93df238876d8987b"
+    },
+    {
+      "path": "help.html",
+      "size": 58975,
+      "sha256": "91b48b7f9b0bd12ce74f59cdf10ac520d165c7ad30c289f1795effecb05fc3bf"
+    },
+    {
+      "path": "index.html",
+      "size": 126903,
+      "sha256": "a068bf2f3643c36225178e6e84aa46414e2e191a0eb2b15b334d83531c22ff22"
+    },
+    {
+      "path": "js/adaptive-experience-v50.js",
+      "size": 5305,
+      "sha256": "67b790177226aa964403db8083a575064c41d4a2f21df4a2acfbd713ca7be7b6"
+    },
+    {
+      "path": "js/adaptive-experience-v51.js",
+      "size": 2677,
+      "sha256": "a2e28b7b0758e7bb57281161b70cdd93b43e87fedd3da8de49024773af29a623"
+    },
+    {
+      "path": "js/adaptive-experience-v53.js",
+      "size": 3135,
+      "sha256": "e98e1738d6835c143ce793986ebc2d45c37fc980f548d557d120b94bd8f49be4"
+    },
+    {
+      "path": "js/app.js",
+      "size": 452699,
+      "sha256": "b96e61cd0e506e41e0b4e65af88be63eeb0a195860c95125c5a55deafc2a881f"
+    },
+    {
+      "path": "js/compatibility.js",
+      "size": 26655,
+      "sha256": "4f7ba1ee5e97dcab0957c81488e2d59841c61fe8ae2f3d44ba2d915ea29dd38a"
+    },
+    {
+      "path": "js/forge-enhancement-suite-v48.js",
+      "size": 57837,
+      "sha256": "6d511ae1db86bfaeee72bf35cd0dddaf83c629068aefa9ac7a6df04dc3afbe52"
+    },
+    {
+      "path": "js/home-ui-v21.js",
+      "size": 5627,
+      "sha256": "0abaa8f7092ca438f91eab2c2ea88b479393481ef04efcb33f93f30f553d94e7"
+    },
+    {
+      "path": "js/material-preview.js",
+      "size": 4702,
+      "sha256": "adc1bd055c05d86943a4fbe12d4ebb398b96da9ddf4689dbed7b55600600423e"
+    },
+    {
+      "path": "js/mobile-experience-v29.js",
+      "size": 3373,
+      "sha256": "81abf6fe0c24e9f7a653ad926083cd94efaec18c45da5ed81667c8315cb54022"
+    },
+    {
+      "path": "js/mobile-experience-v30.js",
+      "size": 5685,
+      "sha256": "db885a82c4c2e9182e013310ab920ff804011aaa9b35f60e97fd29280c9a1fcf"
+    },
+    {
+      "path": "js/mobile-experience-v31.js",
+      "size": 11810,
+      "sha256": "798ed2cef8e9c55d415cad3cd09a6e817c2a9e007f0984d671c7ab3459351ad7"
+    },
+    {
+      "path": "js/mobile-experience-v32.js",
+      "size": 18214,
+      "sha256": "f1934a29ca0a3d7a39411d04e3ffc9da42641a13cbb389392fc37bea51a5b8e1"
+    },
+    {
+      "path": "js/mobile-studio-v39.js",
+      "size": 13391,
+      "sha256": "5f95f28c7ed3f21104d9e622865778c9605ed4901ee82666fd683ec84c83b71a"
+    },
+    {
+      "path": "js/mobile-workflow-v54.js",
+      "size": 12192,
+      "sha256": "d4d0e428a24747763f56ddb7ad3608215835988bce92e4ff20b36d2f0f3cfa9a"
+    },
+    {
+      "path": "js/mode-engines-v38.js",
+      "size": 40965,
+      "sha256": "3e205c88da34c17d6c8f5b5a170fc300e75593de2588c1e75bf7684a2712e1d3"
+    },
+    {
+      "path": "js/mode-workspaces-v37.js",
+      "size": 14962,
+      "sha256": "e007e3ad69cca47b6d67943c94e1a481686d545a6ac2de0aba9560c29c520b1d"
+    },
+    {
+      "path": "js/motion-engine-v26.js",
+      "size": 6790,
+      "sha256": "0848553e52048b27c0d006fcfef3777726070fb01ca9b4a1dfa8652509f95bba"
+    },
+    {
+      "path": "js/precision-motion-v35.js",
+      "size": 23280,
+      "sha256": "b9d004708c6dd65d5b8177a24e7b30f3cb415fd61ae1fb1b84ba7880adb3e5e2"
+    },
+    {
+      "path": "js/psd-compat.js",
+      "size": 8172,
+      "sha256": "117b7eed5e4f95726783b26b443cd84716200666228b5ff8de5ab39929f4c68b"
+    },
+    {
+      "path": "js/startup-performance-v45.js",
+      "size": 2631,
+      "sha256": "460a9f8f47370166baef91f0550368f4b1aaf2b389cb81d90fb17e6d215d667a"
+    },
+    {
+      "path": "js/studio-expansion-v36.js",
+      "size": 79753,
+      "sha256": "2b6e39758a63715ca1eee1059915e9bae1460fbcb805d4fc67e2c93f9199b9a6"
+    },
+    {
+      "path": "js/ui-enhance.js",
+      "size": 17193,
+      "sha256": "164529d11710ce380d84ccd92bbd9a57cb03bc92e01c420313febeb31de84d4a"
+    },
+    {
+      "path": "js/ui-layout-studio-v41.js",
+      "size": 34503,
+      "sha256": "8fb470cecebdabcdee81ab797c7d151138c94e687ae3aa7cda36d47e97169311"
+    },
+    {
+      "path": "js/ui-layout-studio-v43.js",
+      "size": 35586,
+      "sha256": "b2a44a705a5d267ea4f6cbbf20271a55f0871753db1e699c27ff3615c17b396a"
+    },
+    {
+      "path": "js/water-worker-v8.js",
+      "size": 11784,
+      "sha256": "8afd25707dd05045d054e7354f5b01a4d0875d7feac91c57b90d048d356335a4"
+    },
+    {
+      "path": "js/window-manager-v44.js",
+      "size": 26632,
+      "sha256": "6a619e1997d4c26ab558e38fe7cb87c9aa0a4ea40055b90f7fa89302192d2a31"
+    },
+    {
+      "path": "js/window-manager-v45.js",
+      "size": 36836,
+      "sha256": "35ef3229e2ce54584411e28d4eaf9a13ab69d8cd74ece1989ebbe326860c5fa7"
+    },
+    {
+      "path": "js/workbench-personalizer-v40.js",
+      "size": 11498,
+      "sha256": "313613d3c307d7f5f1f6af2d21206c82b48d8024617d77bff31f13456d993c8d"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "size": 831,
+      "sha256": "5abb3175e826ce9df150eace4970e54a3466c9ed3bba3fd1d4fd380667f48860"
+    },
+    {
+      "path": "run_local_server.bat",
+      "size": 766,
+      "sha256": "dcb843b68877e8050f737cd3e3eb1dfb4bdb479d7043de8caa0b03b95acb8f78"
+    },
+    {
+      "path": "run_local_server.sh",
+      "size": 397,
+      "sha256": "4ff03784dc60e2d9c135eca74228629959dceea1dcc88c966c018a362fda04ac"
+    },
+    {
+      "path": "sw.js",
+      "size": 7572,
+      "sha256": "537d0f9b2baa0d25f2f58569789b9596e152047137879bfebc7a000f05be8b19"
+    }
+  ],
+  "notes": [
+    "v53.0 archive files were retained; this manifest records the v54.0 package content excluding this manifest's own hash.",
+    "The manifest is inventory/integrity metadata, not a claim that each feature has been individually executed on physical devices."
+  ]
+}
