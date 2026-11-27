@@ -1,0 +1,49 @@
+/* PIXEL FORGE STUDIO v40 — optional, per-module workbench controls. */
+.pf-wb-module{min-width:0;max-width:100%;padding:6px 8px;border:1px solid rgba(145,172,200,.15);border-radius:9px;background:rgba(10,19,29,.22);}
+.pf-wb-module[hidden],.pf-wb-hidden-tray[hidden],.pf-coach-restore[hidden]{display:none!important}
+.pf-wb-module-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:22px;margin:0 0 4px;}
+.pf-wb-module-title{min-width:0;color:#91a8bf;font-size:8px;font-weight:850;letter-spacing:.09em;line-height:1.3;}
+.pf-wb-module-hide{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:22px;padding:0;border:1px solid rgba(161,184,208,.24);border-radius:6px;background:rgba(115,136,158,.10);color:#b6c6d6;font:700 16px/1 system-ui,sans-serif;cursor:pointer;transition:background .16s,border-color .16s,transform .16s;}
+.pf-wb-module-hide:hover{background:rgba(220,110,110,.16);border-color:rgba(231,140,140,.55);color:#ffd0d0;transform:scale(1.06)}
+.pf-wb-module-hide:focus-visible,.pf-wb-restore:focus-visible,.pf-wb-module-hide-all:focus-visible,.pf-coach-hide:focus-visible{outline:2px solid var(--wb-accent,#87d9b8);outline-offset:2px}
+.pf-wb-module-body{min-width:0;max-width:100%;}
+.pf-wb-module-body>.pf-wb-steps,.pf-wb-module-body>.pf-wb-actions,.pf-wb-module-body>.pf-wb-subrow,.pf-wb-module-body>.pf-wb-sliders,.pf-wb-module-body>.pf-wb-note,.pf-wb-module-body>.pf-pixel-toolset,.pf-wb-module-body>.pf-pixel-settings,.pf-wb-module-body>.pf-palette-row,.pf-wb-module-body>.pf-pixel-meta{margin:0;}
+.pf-wb-hidden-tray{display:flex;align-items:center;gap:5px;flex-wrap:wrap;min-width:0;padding:6px 8px;border:1px dashed rgba(135,164,193,.3);border-radius:9px;background:rgba(90,117,145,.07);}
+.pf-wb-hidden-tray:before{content:'非表示';flex:0 0 auto;color:#8198ad;font-size:8px;font-weight:850;letter-spacing:.08em;}
+.pf-wb-restore{min-height:27px;padding:4px 8px;border:1px solid rgba(130,193,164,.28);border-radius:7px;background:rgba(71,142,109,.13);color:#bce9d2;font-family:inherit;font-size:9px;font-weight:700;line-height:1.3;cursor:pointer;}
+.pf-wb-restore:hover{background:rgba(71,142,109,.25);border-color:rgba(130,193,164,.55)}
+.pf-wb-module-hide-all{min-height:26px!important;padding:4px 7px!important;}
+.pf-wb-content[hidden]{display:none!important}
+.pf-beginner-coach{position:relative;padding-right:40px;}
+.pf-coach-hide{position:absolute;top:7px;right:7px;display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;padding:0;border:1px solid rgba(147,169,192,.27);border-radius:7px;background:rgba(70,88,108,.18);color:#aebfd0;font-size:17px;line-height:1;cursor:pointer;}
+.pf-coach-hide:hover{background:rgba(220,110,110,.14);color:#ffd0d0;border-color:rgba(231,140,140,.5)}
+.pf-coach-restore{font-size:8px!important;}
+.pf-theme-light .pf-wb-module{background:rgba(255,255,255,.68);border-color:#d8e2eb;}
+.pf-theme-light .pf-wb-module-title{color:#60778e;}
+.pf-theme-light .pf-wb-module-hide{background:#fff;color:#61778c;border-color:#cbd8e4;}
+.pf-theme-light .pf-wb-hidden-tray{background:#f4f8fb;border-color:#cbd9e6;}
+.pf-theme-light .pf-wb-restore{background:#edf7f1;color:#315f48;border-color:#c7e2d1;}
+.pf-theme-light .pf-coach-hide{background:#fff;color:#61778c;border-color:#cbd8e4;}
+@media(max-width:680px){
+ .pf-wb-module{flex:0 0 min(88vw,440px);max-width:88vw;padding:5px 6px;border-radius:8px;}
+ .pf-wb-module-head{min-height:27px;margin-bottom:4px;}
+ .pf-wb-module-title{font-size:9px;}
+ .pf-wb-module-hide{width:29px;height:27px;flex-basis:29px;font-size:18px;}
+ .pf-wb-restore{min-height:32px;font-size:10px;padding:6px 9px;}
+ .pf-wb-hidden-tray{flex:0 0 100%;order:999;max-width:100%;}
+ .pf-wb-module-hide-all{min-height:32px!important;}
+ .pf-beginner-coach{padding-right:42px;}
+ .pf-coach-hide{top:5px;right:5px;width:31px;height:31px;}
+}
+@media(max-width:390px){.pf-wb-module{flex-basis:calc(100vw - 34px);max-width:calc(100vw - 34px)}.pf-wb-module-title{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.pf-wb-module-hide{transition:none!important;transform:none!important}}
+
+.pf-wb-restore-all{background:rgba(112,139,168,.13);border-color:rgba(145,172,200,.28);color:#d3dfeb;}
+.pf-theme-light .pf-wb-restore-all{background:#eef3f7;color:#405970;border-color:#cbd8e4;}
+/* Mobile v39 hid the beginner coach globally. In v40, it is available unless the user hides it. */
+@media(max-width:760px){
+ .pf-beginner-coach:not([hidden]){display:flex!important;position:relative;align-items:center;gap:7px;padding:7px 42px 7px 8px;min-height:45px;}
+ .pf-coach-copy strong{font-size:10px;}
+ .pf-coach-copy p{font-size:9px;}
+ .pf-coach-hide{top:6px;right:6px;width:30px;height:30px;}
+}
